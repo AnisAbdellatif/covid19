@@ -15,12 +15,14 @@ class DemandController extends Controller
 
     public function index()
     {
+
         $demands = Demand::where('finished', '0')
                          ->where('taken', '0')
                          ->get()
                          ->filter(function ($demand) {
                             return $demand->user()->first()->country == geoip()->getLocation(geoip()->getClientIP())->country;
-                         });
+                         })
+                         ->sortByDesc('created_at');
         return view('demands.index', compact('demands'));
     }
 
@@ -35,6 +37,8 @@ class DemandController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
         ]);
+
+//        dd(auth()->user()->id);
 
         $demand = Demand::create([
             'title' => $request->title,

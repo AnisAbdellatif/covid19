@@ -26,8 +26,6 @@ class PermissionController extends Controller
             'description' => ['required', 'string'],
         ]);
 
-//        dd($request->description);
-
         $permission = Permission::create([
             'name' => $request->name,
             'description' => $request->description,
