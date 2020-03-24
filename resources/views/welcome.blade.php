@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/icon.png" type="image/png">
-    <title>Seelife Charity</title>
+    <title>{{ config('app.name') }}</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="vendors/linericon/style.css">
-    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css', App::environment('production')) }}">
+    <link rel="stylesheet" href="{{ asset('vendors/lightbox/simpleLightbox.css', App::environment('production')) }}">
+    <link rel="stylesheet" href="{{ asset('vendors/nice-select/css/nice-select.css', App::environment('production')) }}">
+    <link href="{{ asset('css/app.css', App::environment('production')) }}" rel="stylesheet">
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js', App::environment('production')) }}"></script>
 </head>
 <body>
 
