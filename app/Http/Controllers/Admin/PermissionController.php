@@ -34,7 +34,7 @@ class PermissionController extends Controller
         return back()->withSuccess("Permission '$permission->name' has been successfully created.");
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
         $permission = Permission::findOrFail($id);
         $oldName = $permission->name;
@@ -44,7 +44,7 @@ class PermissionController extends Controller
         return back()->withSuccess("Permission '$oldName' has been successfully edited.");
     }
 
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         Permission::destroy($id);
         return back()->withSuccess("Permission has been successfully deleted.");

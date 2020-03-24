@@ -59,7 +59,6 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'string', 'max:8'],
-            'country' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -79,7 +78,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'phone' => $data['phone'],
-            'country' => $data['country'],
+            'country' => geoip()->getLocation(geoip()->getClientIP())->country,
         ]);
     }
 }

@@ -9,9 +9,16 @@
                     <div class="my-auto">
                         Dashboard
                     </div>
+                    @permission('access-demands-page')
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-primary" href="{{ route('demands.create', app()->getLocale()) }}">{{ __('Make new Demand') }}</a>
+                        <a class="btn btn-primary" href="{{ route('demands.index', app()->getLocale()) }}">{{ __('All demands') }}</a>
                     </div>
+                    @endpermission
+                    @permission('make-demand')
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary" href="{{ route('demands.create', app()->getLocale()) }}">{{ __('Make new Demand') }}</a>
+                        </div>
+                    @endpermission
                 </div>
 
                 <div class="card-body">

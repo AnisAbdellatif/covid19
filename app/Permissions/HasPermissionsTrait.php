@@ -47,8 +47,7 @@ trait HasPermissionsTrait {
         return false;
     }
 
-    public function hasRole( ... $roles ) {
-
+    public function hasRole(... $roles ) {
         foreach ($roles as $role) {
             if ($this->roles->contains('name', $role)) {
                 return true;

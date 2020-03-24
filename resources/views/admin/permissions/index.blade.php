@@ -16,7 +16,7 @@
         @endslot
 
         @slot('route')
-            {{ route('admin.permissions.store') }}
+            {{ route('admin.permissions.store', app()->getLocale()) }}
         @endslot
     @endcomponent
 @endsection
@@ -36,7 +36,7 @@
             @endslot
 
             @slot('route')
-                {{ route('admin.permissions.update', ['']) }}
+                {{ route('admin.permissions.update', [app()->getLocale(), '']) }}
             @endslot
         @endcomponent
 
@@ -79,7 +79,7 @@
                             @endslot
 
                             @slot('route')
-                                {{ route('admin.permissions.destroy', $permission->id)}}
+                                {{ route('admin.permissions.destroy', [app()->getLocale(), $permission->id])}}
                             @endslot
 
                             @slot('icon')

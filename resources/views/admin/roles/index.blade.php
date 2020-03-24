@@ -19,7 +19,7 @@
         @endslot
 
         @slot('route')
-            {{ route('admin.roles.store') }}
+            {{ route('admin.roles.store', app()->getLocale()) }}
         @endslot
     @endcomponent
 @endsection
@@ -39,7 +39,7 @@
             @endslot
 
             @slot('route')
-                {{ route('admin.roles.update', ['']) }}
+                {{ route('admin.roles.update', [app()->getLocale(), '']) }}
             @endslot
         @endcomponent
 
@@ -83,7 +83,7 @@
                             @endslot
 
                             @slot('route')
-                                {{ route('admin.roles.destroy', $role->id)}}
+                                {{ route('admin.roles.destroy', [app()->getLocale(), $role->id])}}
                             @endslot
 
                             @slot('icon')

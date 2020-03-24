@@ -55,7 +55,8 @@
                 let modal = $(this)
                 modal.find('.modal-title').text(`Edit Permission: '${ permission_name }'`)
                 let form = modal.find("form");
-                form.attr('action', `${form.attr('action')}/${ permission_id }`);
+                // form.attr('action', `${form.attr('action')}/${ permission_id }`);
+                form.attr('action', "{{ url(app()->getLocale().'/admin/permissions') }}" + `/${ permission_id }`);
                 modal.find(".modal-body input[name='name']").val(permission_name);
                 modal.find(".modal-body textarea[name='description']").val(permission_description)
             });
