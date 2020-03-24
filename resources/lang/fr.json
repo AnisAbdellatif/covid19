@@ -1,0 +1,16 @@
+{
+    "Register": "S'inscrire",
+    "Login": "S'identifier",
+    "Logout": "Se déconnecter",
+    "First Name": "Prénom",
+    "Last Name": "Nom",
+    "Email Address": "Addresse Email",
+    "Password": "Mot de Passe",
+    "Confirm Password": "Confirmation de mot de passe",
+    "Address": "Addresse",
+    "Phone": "Numéro de téléphone",
+    "Forgot Your Password?": "Mot de passe oubliée?",
+    "Remember Me": "Conserver la session",
+    "Send Password Reset Link": "Envoyer le lien de réinitialisation du mot de passe",
+    "Reset Password": "Réinitialiser le mot de passe"
+}

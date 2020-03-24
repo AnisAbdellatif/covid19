@@ -1,0 +1,275 @@
+main {
+  /********************************************************/
+  /*             Sections - universal classes             */
+  /********************************************************/
+  /* Show one of sections */
+  /********************************************************/
+  /*                      Typography                      */
+  /********************************************************/
+  /********************************************************/
+  /*                   UI - Buttons                       */
+  /********************************************************/
+  /********************************************************/
+  /*                 UI - Thumbnails                      */
+  /********************************************************/
+  /********************************************************/
+  /*                 Everything else                      */
+  /********************************************************/
+  /* Social buttons in the footer */
+  /***********************************************************/
+  /*                   Theme: text shadows                   */
+  /***********************************************************/
+  /***********************************************************/
+  /*                   Inverted theme                        */
+  /***********************************************************/
+}
+
+main .section {
+  z-index: 1;
+  min-height: 420px;
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  display: none;
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  main .section {
+    padding-top: 160px;
+  }
+}
+
+main #head {
+  display: block;
+}
+
+main a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main a:hover,
+main a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+main .lead {
+  font-weight: normal;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+
+main .title,
+main .subtitle {
+  font-family: "Wire One", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 7em;
+  margin-bottom: 15px;
+  color: #FDF9F4;
+  line-height: 1em;
+}
+
+main .subtitle {
+  line-height: 0.9em;
+  font-size: 5.5em;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+main .tagline {
+  font-size: 1.4em;
+  line-height: 1.3em;
+  font-weight: normal;
+  margin-bottom: 75px;
+}
+
+@media (max-width: 767px) {
+  main .lead {
+    font-size: 1.3em;
+  }
+}
+
+main .btn {
+  color: #333;
+  text-shadow: none;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 0 none;
+}
+
+main .btn:hover {
+  color: #000;
+}
+
+main .btn-lg {
+  padding: 16px 30px;
+  font-size: inherit;
+}
+
+main .btn-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+main .btn-link:hover,
+main .btn-link:focus,
+main .btn-link:active {
+  color: #fff;
+}
+
+main .btn-default {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+main .btn-default:hover,
+main .btn-default:focus,
+main .btn-default:active,
+main .btn-default.active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+main .btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+main .btn-primary:hover,
+main .btn-primary:focus,
+main .btn-primary:active,
+main .btn-primary:active {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+main .thumbnail {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0 none;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+main .thumbnail .caption {
+  color: inherit;
+}
+
+main .list-social .btn {
+  font-size: 1.3em;
+}
+
+main .list-social .btn:hover,
+main .list-social .btn:active,
+main .list-social .btn:focus {
+  text-decoration: none;
+}
+
+main #social {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+main #social .wrapper {
+  width: 340px;
+  margin: 0 auto;
+}
+
+main .text-shadows {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+main .text-shadows .title,
+main .text-shadows .subtitle,
+main .text-shadows .tagline {
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+main .text-shadows .mainmenu .dropdown-menu a {
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+main .text-shadows .mainmenu .dropdown-menu a:hover {
+  text-shadow: none;
+}
+
+main .theme-invert {
+  color: #FDF9F4;
+  color: #FDF9F4;
+}
+
+main .theme-invert a {
+  color: #000;
+}
+
+main .theme-invert .btn {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+main .theme-invert .btn:hover {
+  color: #fff;
+}
+
+main .theme-invert .btn-link {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+main .theme-invert .btn-link:hover,
+main .theme-invert .btn-link:focus,
+main .theme-invert .btn-link:active {
+  color: #000;
+}
+
+main .theme-invert .navbar-toggle {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+main .theme-invert .navbar-toggle .icon-bar {
+  background: #333;
+}
+
+main .theme-invert .mainmenu .dropdown-menu a {
+  color: #000;
+}
+
+main .theme-invert .mainmenu .dropdown-menu a:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+main .theme-invert .title,
+main .theme-invert .subtitle,
+main .theme-invert .tagline {
+  color: #FDF9F4;
+}
+
+main .theme-invert .btn-default {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+main .theme-invert .btn-default:hover,
+main .theme-invert .btn-default:focus,
+main .theme-invert .btn-default:active,
+main .theme-invert .btn-default.active {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+main .theme-invert .btn-primary {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+main .theme-invert .btn-primary:hover,
+main .theme-invert .btn-primary:focus,
+main .theme-invert .btn-primary:active,
+main .theme-invert .btn-primary.active {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+main .theme-invert .thumbnail {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+main .thumbnail .caption {
+  color: inherit;
+}
+
