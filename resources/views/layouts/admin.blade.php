@@ -6,7 +6,7 @@
 
 @section('head')
     <!-- Styles -->
-    <link href="{{ asset('css/admin.css', App::environment('production')) }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

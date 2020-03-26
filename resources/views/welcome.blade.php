@@ -5,7 +5,7 @@
 @endphp
 
 @section('head')
-    <link rel="stylesheet" href="{{ asset('css/welcome.css', App::environment('production')) }}">
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_causes">
                     <h4>Help People</h4>
-                    <img src="{{ asset('img/causes/c4.png', App::environment('production')) }}" width="95" height="95" alt="">
+                    <img src="{{ asset('img/causes/c4.png') }}" width="95" height="95" alt="">
                     <p>
                         We want to mange to help people through these hard times.
                     </p>
@@ -46,7 +46,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_causes">
                     <h4>Give Inspiration</h4>
-                    <img src="{{ asset('img/causes/c2.png', App::environment('production')) }}" alt="">
+                    <img src="{{ asset('img/causes/c2.png') }}" alt="">
                     <p>
                         We want to be an example for other associations and communities.
                     </p>
@@ -55,7 +55,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="single_causes">
                     <h4>Help the needy people</h4>
-                    <img src="{{ asset('img/causes/c1.png', App::environment('production')) }}" alt="">
+                    <img src="{{ asset('img/causes/c1.png') }}" alt="">
                     <p>
                         There are some people who can't afford even the basic necessities, and we decide to help those by collecting money for them.
                     </p>
@@ -73,7 +73,7 @@
             <div class="single_about row">
                 <div class="col-lg-6 col-md-12 text-center about_left">
                     <div class="about_thumb">
-                        <img src="{{ asset('img/nonprofit.png', App::environment('production')) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('img/nonprofit.png') }}" class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 about_right">
@@ -107,7 +107,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <figure>
-                            <img class="card-img-top img-fluid" src="{{ asset('img/features/normal_user.jpg', App::environment('production')) }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ asset('img/features/normal_user.jpg') }}" alt="Card image cap">
                         </figure>
                         <div class="card_inner_body">
                             <h4 class="card-title">Normal User</h4>
@@ -135,7 +135,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <figure>
-                            <img class="card-img-top img-fluid" src="{{ asset('img/features/volunteer.png', App::environment('production')) }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ asset('img/features/volunteer.png') }}" alt="Card image cap">
                         </figure>
                         <div class="card_inner_body">
                             <h4 class="card-title">Volunteer</h4>
@@ -162,7 +162,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <figure>
-                            <img class="card-img-top img-fluid" style="height: 350px" src="{{ asset('img/features/doctor.png', App::environment('production')) }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" style="height: 350px" src="{{ asset('img/features/doctor.png') }}" alt="Card image cap">
                         </figure>
                         <div class="card_inner_body">
                             <h4 class="card-title">Doctor(Volunteer)</h4>
@@ -387,7 +387,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="img-fluid" style="height: 255px" src="{{ asset('img/team/Amin_Zribi.jpg', App::environment('production')) }}" alt="">
+                        <img class="img-fluid" style="height: 255px" src="{{ asset('img/team/Amin_Zribi.jpg') }}" alt="">
                     </div>
                     <div class="team_name">
                         <h4>Amin Zribi</h4>
@@ -408,7 +408,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="img-fluid" src="{{ asset('img/team/Anis_Abdellatif.jpg', App::environment('production')) }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/team/Anis_Abdellatif.jpg') }}" alt="">
                     </div>
                     <div class="team_name">
                         <h4>Anis Abdellatif</h4>
@@ -429,7 +429,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="img-fluid" src="{{ asset('img/team/Anis_Ouerhani.jpg', App::environment('production')) }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/team/Anis_Ouerhani.jpg') }}" alt="">
                     </div>
                     <div class="team_name">
                         <h4>Anis Ouerhani</h4>
@@ -450,7 +450,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="img-fluid" src="{{ asset('img/team/Med_Rayen.jpg', App::environment('production')) }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/team/Med_Rayen.jpg') }}" alt="">
                     </div>
                     <div class="team_name">
                         <h4>Med Rayen Hosni</h4>
@@ -473,7 +473,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="img-fluid" src="{{ asset('img/team/Rayen_Sboui.jpg', App::environment('production')) }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/team/Rayen_Sboui.jpg') }}" alt="">
                     </div>
                     <div class="team_name">
                         <h4>Rayen Sboui</h4>
@@ -494,7 +494,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="img-fluid" style="height: 255px" src="{{ asset('img/team/Yassine_Metoui.jpg', App::environment('production')) }}" alt="">
+                        <img class="img-fluid" style="height: 255px" src="{{ asset('img/team/Yassine_Metoui.jpg') }}" alt="">
                     </div>
                     <div class="team_name">
                         <h4>Yassine Metoui</h4>

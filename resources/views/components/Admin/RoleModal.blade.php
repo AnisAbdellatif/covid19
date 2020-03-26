@@ -91,7 +91,7 @@
                 let modal = $(this)
                 modal.find('.modal-title').text(`Edit Role: '${ role_name }'`)
                 let form = modal.find("form");
-                form.attr('action', "{{ url('/admin/roles', null, App::environment('production')) }}" + `/${ role_id }`);
+                form.attr('action', "{{ url('/admin/roles') }}" + `/${ role_id }`);
                 modal.find(".modal-body input[name='name']").val(role_name);
                 modal.find(".modal-body textarea[name='description']").val(role_description)
                 $('#EditRoleModal :checkbox').each(function() {

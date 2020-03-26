@@ -12,7 +12,7 @@
                     <div class="card-header">Create new Demand</div>
 
                     <div class="card-body">
-                        <form action="{{ route('demands.store')) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('demands.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">

@@ -13,18 +13,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
-    <link rel="icon" href="{{ asset('img/icon.png', App::environment('production')) }}" type="image/png">
+    <link rel="icon" href="{{ asset('img/icon.png') }}" type="image/png">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js', App::environment('production')) }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css', App::environment('production')) }}" rel="stylesheet">
-{{--    <link rel="stylesheet" href="{{ asset('css/welcome.css', App::environment('production')) }}">--}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">--}}
 
     @yield('head')
 </head>
@@ -33,7 +33,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand d-inline-flex ml-2" href="#">
-                <img src="{{ asset('img/icon.png', App::environment('production')) }}" width="60px" alt="">
+                <img src="{{ asset('img/icon.png') }}" width="60px" alt="">
                 <div class="align-middle ml-1 my-auto" style="color: white; font-size: 30px">{{ config('app.name') }}</div>
             </a>
 
@@ -107,8 +107,8 @@
                 <div class="col-12 col-md-4">
                     <h5>Quick links</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="{{ route('home') }}"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>Welcome</a></li>
+                        <li><a href="{{ route('home') }}"><i class="fa fa-angle-double-right"></i>Home</a></li>
                         <li><a href="{{ route('register') }}"><i class="fa fa-angle-double-right"></i>Join</a></li>
                         <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contact</a></li>
                     </ul>
@@ -145,11 +145,11 @@
                     <h5>Partners</h5>
                     <ul class="list-unstyled row">
                         <li class="col-12 col-md-6 mt-2 mt-md-0">
-                            <img src="{{ asset('img/partners/crt_megrine.png', App::environment('production')) }}" width="100px" alt="sp1">
+                            <img src="{{ asset('img/partners/crt_megrine.png') }}" width="100px" alt="sp1">
                         </li>
 
                         <li class="col-12 col-md-6 mt-2 mt-md-0">
-                            <img class="ml-2" src="{{ asset('img/partners/jci_medina.png', App::environment('production')) }}" width="100px" alt="sp1">
+                            <img class="ml-2" src="{{ asset('img/partners/jci_medina.png') }}" width="100px" alt="sp1">
                         </li>
                     </ul>
                 </div>
