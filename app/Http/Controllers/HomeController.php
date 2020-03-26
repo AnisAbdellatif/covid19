@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd(asset('/'));
         $demands = Demand::where('user_id', auth()->user()->id)
                          ->orderBy('created_at', 'desc')
                          ->get();
