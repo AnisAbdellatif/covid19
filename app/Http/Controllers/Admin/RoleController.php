@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class RoleController extends Controller
 {

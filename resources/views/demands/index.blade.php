@@ -2,7 +2,17 @@
 
 @section('content')
     <div class="container w-75">
-        {{ $demands->count() }}
+        <div class="d-flex justify-content-between mb-2">
+            <div class="d-flex justify-content-end align-middle" style="font-size: 25px">
+                Count: {{ $demands->count() }}
+            </div>
+
+            @role('volunteer')
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-primary" href="{{ route('demands.taken') }}">{{ __('Taken Demands') }}</a>
+                </div>
+            @endrole
+        </div>
         <div id="demands">
             @foreach($demands as $demand)
                 <div class="card mx-auto mb-3">
@@ -14,10 +24,10 @@
                         <p class="card-text">
                             {{ $demand->description }}
                         </p>
-                        <form method="post" action="{{ route('demands.update', [app()->getLocale(), $demand->id]) }}">
+                        <form method="post" action="{{ route('demands.update', $demand->id) }}">
                             @csrf
                             @method("PATCH")
-                            <input class="btn btn-primary" type="submit" name="taken" value="Take">
+                            <input class="btn btn-primary" type="submit" name="{{ $demand->taken ? 'finish' : 'take' }}" value="{{ $demand->taken ? 'Finish' : 'Take' }}">
                         </form>
                     </div>
                     <div class="card-footer text-muted">

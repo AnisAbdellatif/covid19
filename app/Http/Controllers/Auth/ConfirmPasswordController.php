@@ -29,7 +29,7 @@ class ConfirmPasswordController extends Controller
      */
     public function redirectTo()
     {
-        return route('home', app()->getLocale());
+        return route('home');
     }
 
     /**

@@ -64,7 +64,7 @@ class UserController extends Controller
         return back()->withSuccess("Role '$oldName' has been successfully edited.");
     }
 
-    public function destroy($id)
+    public function destroy($lang, $id)
     {
         User::destroy($id);
         return back()->withSuccess("User has been successfully deleted.");

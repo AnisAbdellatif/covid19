@@ -20,6 +20,7 @@ class CreateDemandsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->boolean('taken')->default(false);
+            $table->unsignedBigInteger('taken_by')->nullable();
             $table->boolean('finished')->default(false);
         });
     }

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $authTab = Route::is('admin.users.index') || Route::is('admin.roles.index') || Route::is('admin.permissions.index');
-    $lang = app()->getLocale();
+    $authTab = in_array(explode(".",Route::currentRouteName())[1], array('users', 'roles', 'permissions'));
 @endphp
 
 @section('head')
@@ -20,25 +19,25 @@
 
             <ul class="list-unstyled components">
                 <p><i class="fas fa-tachometer-alt"></i> Dashboard</p>
-                <li class="{{ Route::is('admin.dashboard.index', $lang) ? 'active' : '' }}">
-                    <a href="{{ Route::is('admin.dashboard.index', $lang) ? '#' : route('admin.dashboard.index', $lang) }}"><i class="fas fa-chart-line"></i> General</a>
+                <li class="{{ Route::is('admin.dashboard.index') ? 'active' : '' }}">
+                    <a href="{{ Route::is('admin.dashboard.index') ? '#' : route('admin.dashboard.index') }}"><i class="fas fa-chart-line"></i> General</a>
                 </li>
 
                 <li class="{{ $authTab ? 'active' : '' }}">
                     <a href="#authSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-shield-alt"></i> Auth</a>
                     <ul class="collapse list-unstyled" id="authSubmenu">
-                        <li class="{{ Route::is('admin.users.index', $lang) ? 'active' : '' }}">
-                            <a href="{{ Route::is('admin.users.index', $lang) ? '#' : route('admin.users.index', $lang) }}"><i class="fas fa-users"></i> Users</a>
+                        <li class="{{ Route::is('admin.users.index') ? 'active' : '' }}">
+                            <a href="{{ Route::is('admin.users.index') ? '#' : route('admin.users.index') }}"><i class="fas fa-users"></i> Users</a>
                         </li>
-                        <li class="{{ Route::is('admin.roles.index', $lang) ? 'active' : '' }}">
-                            <a href="{{ Route::is('admin.roles.index', $lang) ? '#' : route('admin.roles.index', $lang) }}"><i class="fas fa-user-tag"></i> Roles</a>
+                        <li class="{{ Route::is('admin.roles.index') ? 'active' : '' }}">
+                            <a href="{{ Route::is('admin.roles.index') ? '#' : route('admin.roles.index') }}"><i class="fas fa-user-tag"></i> Roles</a>
                         </li>
-                        <li class="{{ Route::is('admin.permissions.index', $lang) ? 'active' : '' }}">
-                            <a href="{{ Route::is('admin.permissions.index', $lang) ? '#' : route('admin.permissions.index', $lang) }}"><i class="fas fa-wrench"></i> Permissions</a>
+                        <li class="{{ Route::is('admin.permissions.index') ? 'active' : '' }}">
+                            <a href="{{ Route::is('admin.permissions.index') ? '#' : route('admin.permissions.index') }}"><i class="fas fa-wrench"></i> Permissions</a>
                         </li>
                     </ul>
                 </li>
-                <li class="{{ Route::is('admin.about', $lang) ? 'active' : '' }}">
+                <li class="{{ Route::is('admin.about') ? 'active' : '' }}">
                     <a href="#">About</a>
                 </li>
             </ul>

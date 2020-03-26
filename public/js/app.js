@@ -37134,27 +37134,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/sass/welcome.scss":
-/*!*************************************!*\
-  !*** ./resources/sass/welcome.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 0:
-/*!***********************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/admin.scss ./resources/sass/demands.index.scss ***!
-  \***********************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/demands.index.scss ***!
+  \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\wamp64\www\covid19\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\wamp64\www\covid19\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\covid19\resources\sass\welcome.scss */"./resources/sass/welcome.scss");
 __webpack_require__(/*! C:\wamp64\www\covid19\resources\sass\admin.scss */"./resources/sass/admin.scss");
 module.exports = __webpack_require__(/*! C:\wamp64\www\covid19\resources\sass\demands.index.scss */"./resources/sass/demands.index.scss");
 

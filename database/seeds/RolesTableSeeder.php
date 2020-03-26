@@ -31,6 +31,12 @@ class RolesTableSeeder extends Seeder
         $volunteer_role->save();
         $volunteer_role->permissions()->attach(Permission::whereIn('name', ['access-demands-page', 'make-demand', 'delete-demand'])->get());
 //
+        $doctor_role = new Role();
+        $doctor_role->name = 'doctor';
+        $doctor_role->description = 'Helps people';
+        $doctor_role->save();
+        $doctor_role->permissions()->attach(Permission::whereIn('name', ['access-demands-page', 'make-demand', 'delete-demand'])->get());
+//
         $default_role = new Role();
         $default_role->name = 'default';
         $default_role->description = 'Normal User';

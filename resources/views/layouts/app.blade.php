@@ -1,3 +1,8 @@
+@php
+    use \Illuminate\Support\Facades\Auth;
+    $adminPage = Route::is('admin.*');
+@endphp
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -8,6 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name') }}</title>
+    <link rel="icon" href="{{ asset('img/icon.png', App::environment('production')) }}" type="image/png">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js', App::environment('production')) }}"></script>
@@ -18,75 +24,162 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css', App::environment('production')) }}" rel="stylesheet">
+{{--    <link rel="stylesheet" href="{{ asset('css/welcome.css', App::environment('production')) }}">--}}
 
     @yield('head')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm m-0">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand d-inline-flex ml-2" href="#">
+                <img src="{{ asset('img/icon.png', App::environment('production')) }}" width="60px" alt="">
+                <div class="align-middle ml-1 my-auto" style="color: white; font-size: 30px">{{ config('app.name') }}</div>
+            </a>
 
-                    </ul>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 20px">
+                <ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('welcome') }}">Welcome</a>
+                    </li>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a>
+                    @guest
+                        <li class="nav-item {{ Route::is('login') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+
+                        @if (Route::has('register'))
+                            <li class="nav-item {{ Route::is('register') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            @if(! Route::is('home'))
-                                <a class="btn btn-primary mr-2" href="{{ route('home', app()->getLocale()) }}">Home</a>
-                            @endif
-                            @permission('access-admin-section')
-                                <a class="btn btn-primary mr-2" href="{{ url(app()->getLocale().'/admin/dashboard') }}">Admin Page</a>
-                            @endpermission
+                        @endif
 
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                    @else
+                        @if(Auth::check())
+                            <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            </li>
+                        @endif
+
+                        @permission('access-admin-section')
+                            <li class="nav-item {{ $adminPage ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.default') }}">{{ __('Admin Page') }}</a>
+                            </li>
+                        @endpermission
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </li>
+                    @endguest
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
+
         </nav>
 
-        <main class="mt-3">
+        <main class="{{ !Route::is('welcome') ? 'mt-4' : '' }}">
             @yield('content')
         </main>
     </div>
 
-    @stack('scripts')
+    <!-- Footer -->
+    <section class="{{ !Route::is('welcome') ? 'mt-4' : '' }}" id="footer">
+        <div class="container" id="footer-body">
+            <div class="row text-center text-md-left">
+                <div class="col-12 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="{{ route('home') }}"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fa fa-angle-double-right"></i>Join</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contact</a></li>
+                    </ul>
+                </div>
 
+                <hr class="d-md-none col-s w-75" style="background-color: white;">
+
+                <div class="col-12 col-md-4">
+                    <h5>Info</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li class="info">
+                            <span class="fa fa-location-arrow"></span>
+                            Head Office:
+                            <p>Tunis,Tunisia</p>
+                        </li>
+
+                        <li class="info">
+                            <span class="fa fa-phone"></span>
+                            Phone Number
+                            <p>+216 50 063 206</p>
+                        </li>
+
+                        <li class="info">
+                            <span class="fa fa-envelope"></span>
+                            Email
+                            <p>mrigel789@gmail.com</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr class="d-md-none col-s w-75" style="background-color: white;">
+
+                <div class="col-12 col-md-4">
+                    <h5>Partners</h5>
+                    <ul class="list-unstyled row">
+                        <li class="col-12 col-md-6 mt-2 mt-md-0">
+                            <img src="{{ asset('img/partners/crt_megrine.png', App::environment('production')) }}" width="100px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2 mt-md-0">
+                            <img class="ml-2" src="{{ asset('img/partners/jci_medina.png', App::environment('production')) }}" width="100px" alt="sp1">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="footer-bottom">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="mrigel789@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">
+                        Mriguel &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fas fa-heart"></i> by <a href="https://colorlib.com" style="color: #60bc0f;" target="_blank">Colorlib</a>
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+
+    </section>
+    <!-- ./Footer -->
+
+    @stack('scripts')
 </body>
 </html>

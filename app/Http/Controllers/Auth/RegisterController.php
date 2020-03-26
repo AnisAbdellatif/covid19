@@ -32,7 +32,7 @@ class RegisterController extends Controller
      */
     public function redirectTo()
     {
-        return route('home', app()->getLocale());
+        return route('home');
     }
 
     /**
@@ -72,7 +72,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $name = $data['firstname']." ".$data['lastname'];
-        return User::create([
+        $user = User::create([
             'name' => $name,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -80,5 +80,8 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'country' => geoip()->getLocation(geoip()->getClientIP())->country,
         ]);
+
+        $user->roles()->attach(Role::where('name', 'default')->get());
+        return;
     }
 }

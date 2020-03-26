@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="modal-body">
-                <!-- User Name input field -->
+                    <!-- User Name input field -->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
@@ -142,7 +142,7 @@
                 let modal = $(this)
                 modal.find('.modal-title').text(`Edit User: '${ user_name}'`)
                 let form = modal.find("form");
-                form.attr('action', "{{ url(app()->getLocale().'/admin/users') }}" + `/${user_id}`);
+                form.attr('action', "{{ url('/admin/users', null, App::environment('production')) }}" + `/${user_id}`);
                 modal.find(".modal-body input[name='name']").val(user_name);
                 modal.find(".modal-body input[name='email']").val(user_email);
                 $('#{{ $mode }}UserModal #roles-field :checkbox').each(function() {

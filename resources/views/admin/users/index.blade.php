@@ -1,9 +1,5 @@
 @extends('layouts.admin')
 
-@php
-    $lang = app()->getLocale();
-@endphp
-
 @section('header-links')
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateUserModal">
@@ -19,7 +15,7 @@
         @endslot
 
         @slot('route')
-            {{ route('admin.users.store', $lang) }}
+            {{ route('admin.users.store') }}
         @endslot
     @endcomponent
 @endsection
@@ -39,7 +35,7 @@
             @endslot
 
             @slot('route')
-                {{ route('admin.users.update', [$lang, '']) }}
+                {{ route('admin.users.update', '') }}
             @endslot
         @endcomponent
 
@@ -49,8 +45,8 @@
                 <tr class="">
                     <th scope="col" style="width: 10%">#</th>
                     <th scope="col" style="width: 20%">Name</th>
-                    <th scope="col" style="width: 20%">Roles</th>
-                    <th scope="col" style="width: 30%">Permissions</th>
+                    <th scope="col" style="width: 20%">Email</th>
+                    <th scope="col" style="width: 30%">Roles</th>
                     <th scope="col" style="width: 20%">Actions</th>
                 </tr>
                 </thead>
@@ -86,7 +82,7 @@
                                 @endslot
 
                                 @slot('route')
-                                    {{ route('admin.users.destroy', [$lang, $user->id])}}
+                                    {{ route('admin.users.destroy', $user->id)}}
                                 @endslot
 
                                 @slot('icon')

@@ -5,18 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="my-auto">
-                        Dashboard
-                    </div>
+                <div class="card-header row text-center justify-content-around">
                     @permission('access-demands-page')
-                    <div class="d-flex justify-content-end">
-                        <a class="btn btn-primary" href="{{ route('demands.index', app()->getLocale()) }}">{{ __('All demands') }}</a>
-                    </div>
+                        <div class="col-12 col-md-4">
+                            <a class="btn btn-primary" href="{{ route('demands.index') }}">{{ __('All Demands') }}</a>
+                        </div>
                     @endpermission
+
+                    @role('volunteer')
+                        <div class="col-12 col-md-4 mt-2 mt-md-0">
+                            <a class="btn btn-primary" href="{{ route('demands.taken') }}">{{ __('Taken Demands') }}</a>
+                        </div>
+                    @endrole
+
                     @permission('make-demand')
-                        <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="{{ route('demands.create', app()->getLocale()) }}">{{ __('Make new Demand') }}</a>
+                        <div class="col-12 col-md-4 mt-2 mt-md-0">
+                            <a class="btn btn-primary" href="{{ route('demands.create') }}">{{ __('Make new Demand') }}</a>
                         </div>
                     @endpermission
                 </div>
@@ -36,7 +40,7 @@
                                         <div class="card-header d-inline-flex justify-content-between">
                                             {{ $demand->user()->first()->name }}
                                             @if(!$demand->finished && !$demand->taken)
-                                                <form action="{{ route('demands.destroy', [app()->getLocale(), $demand->id]) }}" method="post" onsubmit="return confirm('Do you really want to delete this Demand?');">
+                                                <form action="{{ route('demands.destroy', $demand->id) }}" method="post" onsubmit="return confirm('Do you really want to delete this Demand?');">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>

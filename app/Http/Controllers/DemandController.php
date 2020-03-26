@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Demand;
-use App\User;
 use Illuminate\Http\Request;
 
 class DemandController extends Controller
@@ -39,8 +38,6 @@ class DemandController extends Controller
             'description' => ['required', 'string'],
         ]);
 
-//        dd(auth()->user()->id);
-
         $demand = Demand::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -48,23 +45,35 @@ class DemandController extends Controller
         ]);
 
 
-        return redirect()->route('home', app()->getLocale());
+        return redirect()->route('home');
     }
 
     public function update(Request $request, $lang, $id)
     {
         $demand = Demand::findOrFail($id);
-        if(isset($request->taken))
+        if(isset($request->take))
         {
             $demand->taken = 1;
+            $demand->taken_by = auth()->user()->id;
         }
-        elseif (isset($request->finished))
+        elseif (isset($request->finish))
         {
             $demand->finished = 1;
         }
         $demand->save();
 
         return back();
+    }
+
+    public function taken(Request $request, $lang)
+    {
+        $demands = Demand::where('taken', '1')
+                         ->where('finished', '0')
+                         ->where('taken_by', auth()->user()->id)
+                         ->get()
+                         ->sortByDesc('created_at');
+
+        return view('demands.index', compact('demands'));
     }
 
     public function destroy($lang, $id)
