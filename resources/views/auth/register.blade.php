@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register').'?type='.app('request')->input('type') }}">
+                    <form method="POST" action="{{ route('register').'?type='.$role }}">
                         @csrf
 
                         <div class="form-group row">

@@ -62,8 +62,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'string', 'max:8'],
-            'description' => ['required', 'string', 'max:255'],
-            'link' => ['required', 'url',],
+            'description' => [Request::get('type') != 'default' ? 'required' : '', 'string', 'max:255'],
+            'link' => [Request::get('type') != 'default' ? 'required' : '', 'url',],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

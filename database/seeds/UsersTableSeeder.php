@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         $superUser = new User();
         $superUser->name = 'Anis Abdellatif';
-        $superUser->email = 'super@'.config('app.url');
+        $superUser->email = 'super@mriguel.org';
         $superUser->password = bcrypt('password');
         $superUser->address = '31 resideance Ennaser, Mnihla, 2094';
         $superUser->phone = '56133606';
