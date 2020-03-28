@@ -18,14 +18,26 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon3">Title</span>
                                 </div>
-                                <input type="text" name="title" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                <input type="text" name="title" class="form-control @error('description') is-invalid @enderror" value="{{ old('title') }}" id="basic-url" aria-describedby="basic-addon3">
+
+                                @error('title')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
                             </div>
 
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Description of your demand</span>
                                 </div>
-                                <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" aria-label="With textarea" name="description">{{ old('description') }}</textarea>
+
+                                @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
                             </div>
 
                             <div class="text-center">

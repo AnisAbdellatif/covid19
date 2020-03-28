@@ -94,6 +94,7 @@ class RegisterController extends Controller
                 'description' => $data['description'],
                 'link' => $data['link'],
             ]);
+            session(['status' => 'Thanks! Your submission was sent and we will reply soon, please check your Facebook/Instagram for updates! <3']);
         }
         return $user;
     }

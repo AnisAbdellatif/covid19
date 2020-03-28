@@ -40,56 +40,58 @@
             @endslot
         @endcomponent
 
-        <table class="table">
-            <thead class="thead-dark">
-            <tr class="">
-                <th scope="col" style="width: 5%">#</th>
-                <th scope="col" style="width: 15%">Name</th>
-                <th scope="col" style="width: 20%">Description</th>
-                <th scope="col" style="width: 40%">Permissions</th>
-                <th scope="col" style="width: 20%">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($permissions as $permission)
-                <tr>
-                    <th scope="row">{{ $permission->id }}</th>
-                    <td>{{ $permission->name }}</td>
-                    <td>{{ $permission->description }}</td>
-                    <td>
-                        <ul>
-                            @foreach($permission->roles()->get() as $role)
-                                <li>{{ $role->name }}</li>
-                            @endforeach
-                        </ul>
-                    </td>
-                    <td class="w-100" style="display: inline-flex">
-                        <button type="button"
-                                class="btn btn-primary mr-2"
-                                data-toggle="modal"
-                                data-target="#EditPermissionModal"
-                                data-permission_id="{{ $permission->id }}"
-                                data-permission_name="{{ $permission->name }}"
-                                data-permission_description="{{ $permission->description }}">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        @component('components.Admin.deleteBtn')
-                            @slot('title')
-                                Permission
-                            @endslot
-
-                            @slot('route')
-                                {{ route('admin.permissions.destroy', $permission->id)}}
-                            @endslot
-
-                            @slot('icon')
-                                    <i class="fas fa-minus-square"></i>
-                            @endslot
-                        @endcomponent
-                    </td>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr class="">
+                    <th scope="col" style="width: 5%">#</th>
+                    <th scope="col" style="width: 15%">Name</th>
+                    <th scope="col" style="width: 20%">Description</th>
+                    <th scope="col" style="width: 40%">Permissions</th>
+                    <th scope="col" style="width: 20%">Actions</th>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach($permissions as $permission)
+                    <tr>
+                        <th scope="row">{{ $permission->id }}</th>
+                        <td>{{ $permission->name }}</td>
+                        <td>{{ $permission->description }}</td>
+                        <td>
+                            <ul>
+                                @foreach($permission->roles()->get() as $role)
+                                    <li>{{ $role->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                        <td class="w-100" style="display: inline-flex">
+                            <button type="button"
+                                    class="btn btn-primary mr-2"
+                                    data-toggle="modal"
+                                    data-target="#EditPermissionModal"
+                                    data-permission_id="{{ $permission->id }}"
+                                    data-permission_name="{{ $permission->name }}"
+                                    data-permission_description="{{ $permission->description }}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            @component('components.Admin.deleteBtn')
+                                @slot('title')
+                                    Permission
+                                @endslot
+
+                                @slot('route')
+                                    {{ route('admin.permissions.destroy', $permission->id)}}
+                                @endslot
+
+                                @slot('icon')
+                                        <i class="fas fa-minus-square"></i>
+                                @endslot
+                            @endcomponent
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
