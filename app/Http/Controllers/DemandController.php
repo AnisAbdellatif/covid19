@@ -15,14 +15,17 @@ class DemandController extends Controller
     public function index()
     {
         $demands = Demand::where('finished', '0')
-                         ->where('taken', '0')
-                         ->get()
-                         ->sortByDesc('created_at');
+                         ->where('taken', '0');
+
         if(! auth()->user()->hasRole(... ['superadmin', 'admin'])) {
-            $demands = $demands->filter(function ($demand) {
-                return $demand->user()->first()->country == auth()->user()->country;
-            });
+            $demands = $demands->where(function ($query) {
+                $query->select('country')
+                    ->from('users')
+                    ->whereColumn('user_id', 'users.id');
+            }, auth()->user()->country);
         }
+
+        $demands= $demands->orderBy('created_at', 'desc')->paginate(5);
         return view('demands.index', compact('demands'));
     }
 
@@ -70,8 +73,8 @@ class DemandController extends Controller
         $demands = Demand::where('taken', '1')
                          ->where('finished', '0')
                          ->where('taken_by', auth()->user()->id)
-                         ->get()
-                         ->sortByDesc('created_at');
+                         ->orderBy('created_at', 'desc')
+                         ->paginate(5);
 
         return view('demands.index', compact('demands'));
     }

@@ -94,6 +94,10 @@
                 @endforeach
                 </tbody>
             </table>
+            <div class="text-xs-center">
+                {{ $users->links() }}
+            </div>
+
         </div>
     </div>
 @endsection

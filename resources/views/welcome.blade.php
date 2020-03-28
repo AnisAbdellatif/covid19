@@ -17,8 +17,7 @@
                 <p class="upper_text">Give a hand</p>
                 <h2>to make the better world</h2>
                 <p>
-                    That don't lights. Blessed land spirit creature divide our made two
-                    itself upon you'll dominion waters man second good you they're divided upon winged were replenish night
+                    Peaple need your help, so why don't you be
                 </p>
             </div>
         </div>
@@ -124,7 +123,7 @@
 {{--                                <p><span>Goal: $2500</span></p>--}}
                             </div>
                             <div class="d-flex justify-content-between donation align-items-center">
-                                <a href="{{ route('register', ['type' => 'normal']) }}" class="primary_btn">Join</a>
+                                <a href="{{ route('register', ['type' => 'default']) }}" class="primary_btn">Join</a>
 {{--                                <p><span class="lnr lnr-heart"></span> 90 Donors</p>--}}
                             </div>
                         </div>
@@ -151,7 +150,7 @@
                                             })->count() }}</p>
                             </div>
                             <div class="d-flex justify-content-between donation align-items-center">
-                                <a href="#" class="primary_btn">Join</a>
+                                <a href="{{ route('register', ['type' => 'volunteer']) }}" class="primary_btn">Join</a>
 {{--                                <p><span class="lnr lnr-heart"></span> 90 Donors</p>--}}
                             </div>
                         </div>
@@ -179,7 +178,7 @@
 {{--                                <p><span>Goal: $2500</span></p>--}}
                             </div>
                             <div class="d-flex justify-content-between donation align-items-center">
-                                <a href="#" class="primary_btn">Join</a>
+                                <a href="{{ route('register', ['type' => 'doctor']) }}" class="primary_btn">Join</a>
 {{--                                <p><span class="lnr lnr-heart"></span> 90 Donors</p>--}}
                             </div>
                         </div>

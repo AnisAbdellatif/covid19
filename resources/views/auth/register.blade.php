@@ -1,14 +1,47 @@
 @extends('layouts.app')
 
+@php
+    switch (app('request')->input('type')) {
+        case 'default':
+            $role = 'default';
+            break;
+        case 'volunteer':
+            $role = 'volunteer';
+            break;
+        case 'doctor':
+            $role = 'doctor';
+            break;
+        default:
+            $role = 'default';
+    }
+@endphp
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header row text-center justify-content-around">
+                    <div class="col-12 col-md-3 mt-2 mt-md-0" style="font-size: 25px;">
+                        {{ __('Register') }}
+                    </div>
+
+                    <div class="col-12 col-md-3 mt-2 mt-md-0">
+                        <a class="btn btn-primary {{ $role == 'default' ? 'active' : '' }}" href="{{ route('register', ['type' => 'default']) }}">{{ __('Normal User') }}</a>
+                    </div>
+
+                    <div class="col-12 col-md-3 mt-2 mt-md-0">
+                        <a class="btn btn-primary {{ $role == 'volunteer' ? 'active' : '' }}" href="{{ route('register', ['type' => 'volunteer']) }}">{{ __('Volunteer') }}</a>
+                    </div>
+
+                    <div class="col-12 col-md-3 mt-2 mt-md-0">
+                        <a class="btn btn-primary {{ $role == 'doctor' ? 'active' : '' }}" href="{{ route('register', ['type' => 'doctor']) }}">{{ __('Doctor') }}</a>
+                    </div>
+
+                </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register').'?type='.app('request')->input('type') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -79,7 +112,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
 
                                 @error('address')
                                 <span class="invalid-feedback" role="alert">
@@ -93,7 +126,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="e.g. XX XXX XXX" required autocomplete="phone" autofocus>
+                                <input type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="e.g. XX XXX XXX" required autocomplete="phone">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -103,21 +136,35 @@
                             </div>
                         </div>
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>--}}
+                        @if($role != "default")
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Why do you want to join as '. $role) }}</label>
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <select name="country" class="custom-select @error('country') is-invalid @enderror" id="countrySelect">--}}
-{{--                                    <option value="Tunisia" selected>🇹🇳&emsp; Tunisia</option>--}}
-{{--                                </select>--}}
+                                <div class="col-md-6">
+                                    <textarea class="form-control @error('description') is-invalid @enderror" value="{{ old('description') }}" required name="description" maxlength="255"></textarea>
 
-{{--                                @error('country')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                                    @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Facebook/Instagram Link') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="url" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link') }}" placeholder="e.g. https://facebook.com/XXXXXXXX" required>
+
+                                    @error('link')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        @endif
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -134,21 +181,3 @@
 </div>
 @endsection
 
-{{--@push('scripts')--}}
-{{--    <script !src="">--}}
-{{--        let address_input = $('#address_input');--}}
-{{--        address_input.hide()--}}
-{{--        function error() {--}}
-{{--            alert('Error getting your location, please enter your exact address in the specific field!');--}}
-{{--            address_input.show();--}}
-{{--        }--}}
-
-{{--        if (navigator.geolocation) {--}}
-{{--            navigator.geolocation.getCurrentPosition((position) => {--}}
-{{--                console.log(position.coords);--}}
-{{--            }, () => (error()));--}}
-{{--        } else {--}}
-{{--            error();--}}
-{{--        }--}}
-{{--    </script>--}}
-{{--@endpush--}}

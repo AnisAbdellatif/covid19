@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::All();
+        $users = User::paginate(10);
         return view('admin.users.index', compact('users'));
     }
 
@@ -61,7 +61,7 @@ class UserController extends Controller
         if (isset($request->permissions)) {
             $user->permissions()->attach(Permission::whereIn('name', $request->permissions)->get());
         }
-        return back()->withSuccess("Role '$oldName' has been successfully edited.");
+        return back()->withSuccess("User '$oldName' has been successfully edited.");
     }
 
     public function destroy($lang, $id)

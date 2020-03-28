@@ -24,7 +24,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{--    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">--}}
 
     @yield('head')
 </head>
@@ -95,7 +94,7 @@
 
         </nav>
 
-        <main class="{{ !Route::is('welcome') ? 'mt-4' : '' }}">
+        <main style="min-height: 100vh" class="{{ !Route::is('welcome') ? 'mt-4' : '' }}">
             @yield('content')
         </main>
     </div>
@@ -144,12 +143,32 @@
                 <div class="col-12 col-md-4">
                     <h5>Partners</h5>
                     <ul class="list-unstyled row">
-                        <li class="col-12 col-md-6 mt-2 mt-md-0">
+                        <li class="col-12 col-md-6 mt-2">
+                            <img src="{{ asset('img/partners/ajst.png') }}" width="180px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2">
+                            <img src="{{ asset('img/partners/galaxy.png') }}" width="130px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2">
                             <img src="{{ asset('img/partners/crt_megrine.png') }}" width="100px" alt="sp1">
                         </li>
 
-                        <li class="col-12 col-md-6 mt-2 mt-md-0">
-                            <img class="ml-2" src="{{ asset('img/partners/jci_medina.png') }}" width="100px" alt="sp1">
+                        <li class="col-12 col-md-6 mt-2 pt-3">
+                            <img class="ml-2" src="{{ asset('img/partners/jci_medina_s.png') }}" width="120px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2 pt-4 pr-2">
+                            <img class="ml-2" src="{{ asset('img/partners/jci_medina_j.png') }}" width="100px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2">
+                            <img class="ml-2" src="{{ asset('img/partners/jokeresen.png') }}" width="120px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2">
+                            <img class="ml-2" src="{{ asset('img/partners/atg.png') }}" width="120px" alt="sp1">
                         </li>
                     </ul>
                 </div>

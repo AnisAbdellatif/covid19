@@ -25,14 +25,16 @@ class UsersTableSeeder extends Seeder
         $superUser->roles()->attach(Role::All());
         $superUser->permissions()->attach(Permission::All());
 
-        $volunteer = new User();
-        $volunteer->name = 'Volunteer';
-        $volunteer->email = 'volunteer@'.config('app.url');
-        $volunteer->password = bcrypt('password');
-        $volunteer->address = '31 resideance Ennaser, Mnihla, 2094';
-        $volunteer->phone = '56133606';
-        $volunteer->country = 'Algeria';
-        $volunteer->save();
-        $volunteer->roles()->attach(Role::where('name', 'volunteer')->get());
+//        for ($x = 0; $x < 15; $x++) {
+//            $volunteer = new User();
+//            $volunteer->name = 'Volunteer';
+//            $volunteer->email = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5).'@' . config('app.url');
+//            $volunteer->password = bcrypt('password');
+//            $volunteer->address = '31 resideance Ennaser, Mnihla, 2094';
+//            $volunteer->phone = '56133606';
+//            $volunteer->country = 'Algeria';
+//            $volunteer->save();
+//            $volunteer->roles()->attach(Role::where('name', 'volunteer')->get());
+//        }
     }
 }

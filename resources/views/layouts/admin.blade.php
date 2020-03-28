@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="{{ Route::is('admin.about') ? 'active' : '' }}">
-                    <a href="#">About</a>
+                <li class="{{ Route::is('admin.requests.index') ? 'active' : '' }}">
+                    <a href="{{ Route::is('admin.requests.index') ? '#' : route('admin.requests.index') }}"><i class="fas fa-question"></i> Requests</a>
                 </li>
             </ul>
 

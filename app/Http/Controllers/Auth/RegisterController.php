@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Role;
+use \Illuminate\Support\Facades\Request;
 use App\User;
+use \App\Request as RoleRequest;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -59,6 +62,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'string', 'max:8'],
+            'description' => ['required', 'string', 'max:255'],
+            'link' => ['required', 'url',],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -66,8 +71,8 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\User
+     * @param array $data
+     * @return void
      */
     protected function create(array $data)
     {
@@ -82,6 +87,14 @@ class RegisterController extends Controller
         ]);
 
         $user->roles()->attach(Role::where('name', 'default')->get());
-        return;
+        if (in_array(Request::get('type'), array('volunteer', 'doctor'))) {
+            RoleRequest::create([
+                'user_id' => $user->id,
+                'wanted' => Request::get('type'),
+                'description' => $data['description'],
+                'link' => $data['link'],
+            ]);
+        }
+        return $user;
     }
 }

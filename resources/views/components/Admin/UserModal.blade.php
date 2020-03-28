@@ -142,7 +142,7 @@
                 let modal = $(this)
                 modal.find('.modal-title').text(`Edit User: '${ user_name}'`)
                 let form = modal.find("form");
-                form.attr('action', "{{ url('/admin/users') }}" + `/${user_id}`);
+                form.attr('action', "{{ route('admin.users.update', '') }}" + `/${user_id}`);
                 modal.find(".modal-body input[name='name']").val(user_name);
                 modal.find(".modal-body input[name='email']").val(user_email);
                 $('#{{ $mode }}UserModal #roles-field :checkbox').each(function() {

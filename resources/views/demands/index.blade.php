@@ -35,6 +35,8 @@
                     </div>
                 </div>
             @endforeach
+
+                {{ $demands->links() }}
         </div>
     </div>
 @endsection

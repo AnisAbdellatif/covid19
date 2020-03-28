@@ -34,6 +34,8 @@ Route::group(['prefix' => '{language}'], function () {
             Route::resource('roles', 'RoleController');
             Route::resource('permissions', 'PermissionController');
 
+            Route::resource('requests', 'RequestController');
+
             Route::redirect('/', route('admin.dashboard.index', app()->getLocale()))->name("default");
         });
 
@@ -43,6 +45,4 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::resource('demands', 'DemandController')
         ->middleware('auth');
-
-    Route::get('/requests', 'RequestController@index')->name('requests.index');
 });

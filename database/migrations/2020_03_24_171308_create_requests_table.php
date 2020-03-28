@@ -17,7 +17,10 @@ class CreateRequestsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('user_id')->unsigned();
-            $table->string('action');
+            $table->string('wanted');
+            $table->text('description');
+            $table->text('link');
+            $table->boolean('finished')->default(false);
         });
     }
 
