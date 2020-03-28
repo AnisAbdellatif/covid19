@@ -142,13 +142,17 @@
 
                 <div class="col-12 col-md-4">
                     <h5>Partners</h5>
-                    <ul class="list-unstyled row">
+                    <ul class="list-unstyled row" style="height: 280px; overflow-y: auto">
                         <li class="col-12 col-md-6 mt-2">
                             <img src="{{ asset('img/partners/ajst.png') }}" width="180px" alt="sp1">
                         </li>
 
                         <li class="col-12 col-md-6 mt-2">
                             <img src="{{ asset('img/partners/galaxy.png') }}" width="130px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2">
+                            <img class="ml-2" src="{{ asset('img/partners/atg.png') }}" width="120px" alt="sp1">
                         </li>
 
                         <li class="col-12 col-md-6 mt-2">
@@ -163,13 +167,30 @@
                             <img class="ml-2" src="{{ asset('img/partners/jci_medina_j.png') }}" width="100px" alt="sp1">
                         </li>
 
+                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                            <img class="ml-2" src="{{ asset('img/partners/jci_riadhelmourouj.png') }}" width="120px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                            <img class="ml-2" src="{{ asset('img/partners/ucba.png') }}" width="120px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                            <img class="ml-2" src="{{ asset('img/partners/lctm.png') }}" width="120px" alt="sp1">
+                        </li>
+
+                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                            <img class="ml-2" src="{{ asset('img/partners/amspt.png') }}" width="120px" alt="sp1">
+                        </li>
+
                         <li class="col-12 col-md-6 mt-2">
                             <img class="ml-2" src="{{ asset('img/partners/jokeresen.png') }}" width="120px" alt="sp1">
                         </li>
 
                         <li class="col-12 col-md-6 mt-2">
-                            <img class="ml-2" src="{{ asset('img/partners/atg.png') }}" width="120px" alt="sp1">
+                            <img class="ml-2" src="{{ asset('img/partners/ajccm.png') }}" width="120px" alt="sp1">
                         </li>
+
                     </ul>
                 </div>
             </div>

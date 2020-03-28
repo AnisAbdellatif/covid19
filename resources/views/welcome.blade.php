@@ -17,7 +17,7 @@
                 <p class="upper_text">Give a hand</p>
                 <h2>to make the better world</h2>
                 <p>
-                    Peaple need your help, so why don't you be
+                    People need your help, so why don't the one who draws a smile on their faces.
                 </p>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Our major causes</h2>
-            <p>Creepeth called face upon face yielding midst is after moveth </p>
+{{--            <p>Creepeth called face upon face yielding midst is after moveth </p>--}}
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -38,7 +38,7 @@
                     <h4>Help People</h4>
                     <img src="{{ asset('img/causes/c4.png') }}" width="95" height="95" alt="">
                     <p>
-                        We want to mange to help people through these hard times.
+                        We want to mange to help people. Every service we offer in in favor of those in need.
                     </p>
                 </div>
             </div>
@@ -98,7 +98,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Featured causes</h2>
-            <p>Creepeth called face upon face yielding midst is after moveth </p>
+{{--            <p>Creepeth called face upon face yielding midst is after moveth </p>--}}
         </div>
 
         <div class="row">
@@ -522,10 +522,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <h1>Become a volunteer</h1>
-                <p>
-                    So seed seed green that winged cattle in. Gathering thing made fly you're
-                    divided deep leave on the medicene moved us land years living.
-                </p>
+{{--                <p>--}}
+{{--                    So seed seed green that winged cattle in. Gathering thing made fly you're--}}
+{{--                    divided deep leave on the medicene moved us land years living.--}}
+{{--                </p>--}}
                 <a href="{{ route('register') }}" class="primary_btn yellow_btn rounded">join us</a>
             </div>
         </div>
