@@ -17,7 +17,7 @@
             @foreach($demands as $demand)
                 <div class="card mx-auto mb-3">
                     <div class="card-header">
-                        {{ $demand->user()->first()->name }}
+                        {{ $demand->user()->first()->name }} | {{ $demand->user()->first()->country }} | {{ $demand->user()->first()->phone }}
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $demand->title }}</h5>
