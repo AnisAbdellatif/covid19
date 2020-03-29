@@ -22,6 +22,11 @@ class PermissionsTableSeeder extends Seeder
         $accessAuthPanel->description = 'User can access auth panel in the dashboard';
         $accessAuthPanel->save();
 
+        $editAuthPanel = new Permission();
+        $editAuthPanel->name = 'edit-auth-panel';
+        $editAuthPanel->description = 'User can edit auth panel in the dashboard';
+        $editAuthPanel->save();
+
         $accessDemandsPage = new Permission();
         $accessDemandsPage->name = 'access-demands-page';
         $accessDemandsPage->description = 'User can access demands page';

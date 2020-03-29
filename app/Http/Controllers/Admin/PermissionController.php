@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit-auth-panel')->except('index');
+    }
+
     public function index()
     {
         $permissions = Permission::All();

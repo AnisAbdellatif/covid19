@@ -7,13 +7,24 @@ use App\Permission;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:edit-auth-panel')->except('index');
+    }
+
     public function index()
     {
-        $users = User::paginate(10);
+        $superId = Role::where('name', 'superadmin')->first()->id;
+        $superUsersIds = DB::table('role_user')
+            ->where('role_id', $superId)
+            ->pluck('user_id')
+            ->toArray();
+        $users = User::whereNotIn('id', $superUsersIds)->paginate(10);
         return view('admin.users.index', compact('users'));
     }
 

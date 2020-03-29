@@ -32,9 +32,7 @@
                         <td>{{ $request->wanted }}</td>
                         <td>
                             <div class="overflow-auto" style="height: 100px; color: #212529">
-{{--                                {{ $request->description }}--}}
-
-                                GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG
+                                {{ $request->description }}
                             </div>
                         </td>
                         <td><a href="{{ $request->link }}">{{ $request->link }}</a></td>
