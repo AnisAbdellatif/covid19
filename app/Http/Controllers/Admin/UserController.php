@@ -64,6 +64,26 @@ class UserController extends Controller
         return back()->withSuccess("User '$oldName' has been successfully edited.");
     }
 
+    public function search(Request $request) {
+        $query = $request->get('query');
+        $category = $request->get('category');
+
+        $users = User::where($category, 'like', '%'.$query.'%')->paginate(10);
+        return view('admin.users.index', compact('users'));
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $data = $request->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = User::findOrFail(auth()->user()->id);
+        $user->password = Hash::make($data['password']);
+        $user->save();
+        return route('home');
+    }
+
     public function destroy($lang, $id)
     {
         User::destroy($id);

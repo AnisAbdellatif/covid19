@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/en');
 
 Route::group(['prefix' => '{language}'], function () {
-//    Route::get('/', function () {
-//        dd(route('login'));
-//    })->name('welcome');
     Route::view('/', 'welcome')->name('welcome');
 
     Auth::routes();
@@ -30,8 +27,11 @@ Route::group(['prefix' => '{language}'], function () {
         ->group(function () {
             Route::resource('dashboard', 'DashboardController');
 
+            Route::get('users/search', 'UserController@search')->name('users.search')->middleware(['auth', 'permission:access-auth-panel']);
             Route::resource('users', 'UserController')->middleware(['auth', 'permission:access-auth-panel']);
+
             Route::resource('roles', 'RoleController')->middleware(['auth', 'permission:access-auth-panel']);
+
             Route::resource('permissions', 'PermissionController')->middleware(['auth', 'permission:access-auth-panel']);
 
             Route::resource('requests', 'RequestController');
@@ -45,4 +45,11 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::resource('demands', 'DemandController')
         ->middleware('auth');
+
+    Route::namespace('Admin')
+        ->middleware('auth')
+        ->group(function () {
+            Route::view('/change-password', 'auth.change_password')->name('change_password.edit');
+            Route::patch('/change-password', 'UserController@updatePassword')->name('change_password.update');
+        });
 });

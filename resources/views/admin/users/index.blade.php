@@ -1,6 +1,26 @@
 @extends('layouts.admin')
 
 @section('header-links')
+
+    <form action="{{ route('admin.users.search') }}">
+        <div class="input-group">
+            <span class="mr-4 pt-1">
+                <a href="{{ route('admin.users.index') }}"><i class="fas fa-backward fa-2x"></i></a>
+            </span>
+            <input type="search" name="query" class="form-control" value="{{ request('query') }}">
+            <span class="input-group-prepend">
+                <select class="custom-select" name="category">
+                    <option value="name" {{ request('category') == 'name' ? 'selected' : '' }}>name</option>
+                    <option value="email" {{ request('category') == 'email' ? 'selected' : '' }}>email</option>
+                    <option value="id" {{ request('category') == 'id' ? 'selected' : '' }}>id</option>
+                </select>
+            </span>
+            <span class="input-group-prepend">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </span>
+        </div>
+    </form>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateUserModal">
         Create User

@@ -74,13 +74,24 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('change_password.edit') }}"
+                                   onclick="event.preventDefault(); document.getElementById('change_password-form').submit();">
+                                {{ __('Change Password') }}
+                                </a>
+                                <form id="change_password-form" action="{{ route('change_password.edit') }}" method="GET" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <div class="dropdown-divider"></div>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                    {{ __('Logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+
                                 <div class="dropdown-divider"></div>
                             </div>
                         </li>
@@ -101,9 +112,9 @@
 
     <!-- Footer -->
     <section class="{{ !Route::is('welcome') ? 'mt-4' : '' }}" id="footer">
-        <div class="container" id="footer-body">
+        <div class="container py-5">
             <div class="row text-center text-md-left">
-                <div class="col-12 col-md-4">
+                <div class="col-sm-12 col-md-4">
                     <h5>Quick links</h5>
                     <ul class="list-unstyled quick-links">
                         <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>Welcome</a></li>
@@ -111,11 +122,10 @@
                         <li><a href="{{ route('register') }}"><i class="fa fa-angle-double-right"></i>Join</a></li>
                         <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contact</a></li>
                     </ul>
+                    <hr class="d-md-none w-75" style="background-color: white;">
                 </div>
 
-                <hr class="d-md-none col-s w-75" style="background-color: white;">
-
-                <div class="col-12 col-md-4">
+                <div class="col-sm-12 col-md-4">
                     <h5>Info</h5>
                     <ul class="list-unstyled quick-links">
                         <li class="info">
@@ -136,62 +146,63 @@
                             <p>mrigel789@gmail.com</p>
                         </li>
                     </ul>
+                    <hr class="d-md-none w-75" style="background-color: white;">
                 </div>
 
-                <hr class="d-md-none col-s w-75" style="background-color: white;">
-
-                <div class="col-12 col-md-4">
+                <div class="col-sm-12 col-md-4">
                     <h5>Partners</h5>
-                    <ul class="list-unstyled row" style="height: 280px; overflow-y: auto">
-                        <li class="col-12 col-md-6 mt-2">
-                            <img src="{{ asset('img/partners/ajst.png') }}" width="180px" alt="sp1">
-                        </li>
+                    <div class="container-fluid">
+                        <ul class="list-unstyled row" style="height: 280px; overflow-y: auto">
+                            <li class="col-12 col-md-6 mt-2">
+                                <img src="{{ asset('img/partners/ajst.png') }}" width="180px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2">
-                            <img src="{{ asset('img/partners/galaxy.png') }}" width="130px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2">
+                                <img src="{{ asset('img/partners/galaxy.png') }}" width="130px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2">
-                            <img class="ml-2" src="{{ asset('img/partners/atg.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2">
+                                <img class="ml-2" src="{{ asset('img/partners/atg.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2">
-                            <img src="{{ asset('img/partners/crt_megrine.png') }}" width="100px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2">
+                                <img src="{{ asset('img/partners/crt_megrine.png') }}" width="100px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2 pt-3">
-                            <img class="ml-2" src="{{ asset('img/partners/jci_medina_s.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2 pt-3">
+                                <img class="ml-2" src="{{ asset('img/partners/jci_medina_s.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2 pt-4 pr-2">
-                            <img class="ml-2" src="{{ asset('img/partners/jci_medina_j.png') }}" width="100px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2 pt-4 pr-2">
+                                <img class="ml-2" src="{{ asset('img/partners/jci_medina_j.png') }}" width="100px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                            <img class="ml-2" src="{{ asset('img/partners/jci_riadhelmourouj.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                                <img class="ml-2" src="{{ asset('img/partners/jci_riadhelmourouj.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                            <img class="ml-2" src="{{ asset('img/partners/ucba.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                                <img class="ml-2" src="{{ asset('img/partners/ucba.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                            <img class="ml-2" src="{{ asset('img/partners/lctm.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                                <img class="ml-2" src="{{ asset('img/partners/lctm.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                            <img class="ml-2" src="{{ asset('img/partners/amspt.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
+                                <img class="ml-2" src="{{ asset('img/partners/amspt.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2">
-                            <img class="ml-2" src="{{ asset('img/partners/jokeresen.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2">
+                                <img class="ml-2" src="{{ asset('img/partners/jokeresen.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                        <li class="col-12 col-md-6 mt-2">
-                            <img class="ml-2" src="{{ asset('img/partners/ajccm.png') }}" width="120px" alt="sp1">
-                        </li>
+                            <li class="col-12 col-md-6 mt-2">
+                                <img class="ml-2" src="{{ asset('img/partners/ajccm.png') }}" width="120px" alt="sp1">
+                            </li>
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

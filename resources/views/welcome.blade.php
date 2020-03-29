@@ -17,7 +17,7 @@
                 <p class="upper_text">Give a hand</p>
                 <h2>to make the better world</h2>
                 <p>
-                    People need your help, so why don't the one who draws a smile on their faces.
+                    People need your help, so why don't you be the one who draws a smile on their faces.
                 </p>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     <h4>Help People</h4>
                     <img src="{{ asset('img/causes/c4.png') }}" width="95" height="95" alt="">
                     <p>
-                        We want to mange to help people. Every service we offer in in favor of those in need.
+                        We want to manage to help people. Every service we offer in in favour of those in need.
                     </p>
                 </div>
             </div>
@@ -69,23 +69,22 @@
 <section class="about_area section_gap_bottom">
     <div class="container">
         <div class="row">
-            <div class="single_about row">
-                <div class="col-lg-6 col-md-12 text-center about_left">
-                    <div class="about_thumb">
-                        <img src="{{ asset('img/nonprofit.png') }}" class="img-fluid" alt="">
-                    </div>
+            <div class="col-lg-6 col-md-12 text-center about_left">
+                <div class="about_thumb h-100" style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <img src="{{ asset('img/nonprofit.png') }}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-6 col-md-12 about_right">
-                    <div class="about_content">
-                        <h2>
-                            We are nonprofit team <br>
-                            and work currently only in <span style="color: red">Tunisia</span> with plans to expand more.
-                        </h2>
-                        <p style="font-size: 30px">
-                            Our goal won't and will never be profit.
-                        </p>
-                        <a href="#" class="primary_btn">Learn more</a>
-                    </div>
+            </div>
+            <div class="col-lg-6 col-md-12 about_right">
+                <div class="about_content">
+                    <h2>
+                        We are a nonprofit team <br>
+                        that works currently in <span style="color: red">Tunisia</span>
+                        with plans to expand more in the future.
+                    </h2>
+                    <p style="font-size: 30px">
+                        Our goal will <u>Never</u> be profitable.
+                    </p>
+                    <a href="#" class="primary_btn">Learn more</a>
                 </div>
             </div>
         </div>
@@ -134,7 +133,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <figure>
-                            <img class="card-img-top img-fluid" src="{{ asset('img/features/volunteer.png') }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="{{ asset('img/features/volunteer.jpg') }}" alt="Card image cap">
                         </figure>
                         <div class="card_inner_body">
                             <h4 class="card-title">Volunteer</h4>
@@ -161,7 +160,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <figure>
-                            <img class="card-img-top img-fluid" style="height: 350px" src="{{ asset('img/features/doctor.png') }}" alt="Card image cap">
+                            <img class="card-img-top img-fluid" style="height: 350px" src="{{ asset('img/features/doctor.jpg') }}" alt="Card image cap">
                         </figure>
                         <div class="card_inner_body">
                             <h4 class="card-title">Doctor(Volunteer)</h4>
@@ -484,6 +483,27 @@
                             <a href="https://www.facebook.com/sboui.rayen" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
                             <a href="javascript:void();" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
                             <a href="https://www.instagram.com/rayen1sboui/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="team_item">
+                    <div class="team_img">
+                        <img class="img-fluid" src="{{ asset('img/team/Reema_Diab.jpg') }}" width="255px" style="max-height: 255px" alt="">
+                    </div>
+                    <div class="team_name">
+                        <h4>Reema Diab</h4>
+                        <p>CEO of Galaxy organisation</p>
+                        {{--                        <p class="mt-20">--}}
+                        {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
+                        {{--                        </p>--}}
+                        <div class="social">
+                            <a href="https://www.facebook.com/reema.diab.3" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
                             <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
