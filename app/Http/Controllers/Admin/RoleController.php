@@ -29,14 +29,17 @@ class RoleController extends Controller
             'permissions' => ['array'],
         ]);
 
-        $role = Role::create([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
+        try {
+            $role = Role::create([
+                'name' => $request->name,
+                'description' => $request->description,
+            ]);
+            $role->permissions()->attach(Permission::whereIn('name', $request->permissions)->get());
 
-        $role->permissions()->attach(Permission::whereIn('name', $request->permissions)->get());
-
-        return back()->withSuccess("Role '$role->name' has been successfully created.");
+            return back()->withSuccess("Role '$role->name' has been successfully created.");
+        } catch (\Exception $exception) {
+            return back()->withErrors("Role '$request->name' was not created due to an error.");
+        }
     }
 
     public function update(Request $request, $lang, $id)

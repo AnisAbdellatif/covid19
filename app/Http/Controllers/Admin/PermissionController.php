@@ -31,12 +31,18 @@ class PermissionController extends Controller
             'description' => ['required', 'string'],
         ]);
 
-        $permission = Permission::create([
-            'name' => $request->name,
-            'description' => $request->description,
-        ]);
+        try {
+            $permission = Permission::create([
+                'name' => $request->name,
+                'description' => $request->description,
+            ]);
+            return back()->withSuccess("Permission '$permission->name' has been successfully created.");
+        } catch (\Exception $exception) {
+            return back()->withErrors("Permission '$request->name' was not created due to an error.");
+        }
 
-        return back()->withSuccess("Permission '$permission->name' has been successfully created.");
+
+
     }
 
     public function update(Request $request, $lang, $id)
