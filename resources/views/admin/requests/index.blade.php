@@ -12,21 +12,31 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr class="">
-                    <th scope="col" style="width: 5%">#</th>
-                    <th scope="col" style="width: 8%">User ID</th>
+                    <th scope="col" style="width: 2%">#</th>
+                    <th scope="col" style="width: 10%">User name</th>
+                    <th scope="col" style="width: 10%">User email</th>
+                    <th scope="col" style="width: 10%">User phone</th>
                     <th scope="col" style="width: 10%">Wanted</th>
-                    <th scope="col" style="width: 40%">Description</th>
+                    <th scope="col" style="width: 30%">Description</th>
                     <th scope="col" style="width: 10%">link</th>
-                    <th scope="col" style="width: 10%">Actions</th>
+                    <th scope="col" style="width: 8%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($requests as $request)
                     <tr>
                         <th scope="row">{{ $request->id }}</th>
-                        <td>{{ $request->user_id }}</td>
+                        <td>{{ $request->user()->first()->name }}</td>
+                        <td>{{ $request->user()->first()->email }}</td>
+                        <td>{{ $request->user()->first()->phone }}</td>
                         <td>{{ $request->wanted }}</td>
-                        <td>{{ $request->description }}</td>
+                        <td>
+                            <div class="overflow-auto" style="height: 100px; color: #212529">
+{{--                                {{ $request->description }}--}}
+
+                                GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG GSDFGFSDU UHUSK KLJGHHJSDHG
+                            </div>
+                        </td>
                         <td><a href="{{ $request->link }}">{{ $request->link }}</a></td>
                         <td class="w-100" style="display: inline-flex">
 

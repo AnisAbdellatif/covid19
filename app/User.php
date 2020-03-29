@@ -44,4 +44,9 @@ class User extends Authenticatable
         return $this->hasMany(Demand::class);
     }
 
+    public function request()
+    {
+        return $this->hasOne(Request::class);
+    }
+
 }
