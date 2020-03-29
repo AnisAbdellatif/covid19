@@ -395,10 +395,10 @@
 {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
 {{--                        </p>--}}
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                            <a href="#" class=""><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
+                            <a href="https://www.facebook.com/amine.zribi.9" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
@@ -416,10 +416,10 @@
 {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
 {{--                        </p>--}}
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                            <a href="#" class=""><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
+                            <a href="https://www.facebook.com/anis.abdellatif.57"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="https://twitter.com/anis_abdellatif" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://www.instagram.com/anis_abdellatif200/"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="mailto: anisabdellatif57@gmail.com"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
@@ -437,10 +437,10 @@
 {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
 {{--                        </p>--}}
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                            <a href="#" class=""><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
+                            <a href="https://www.facebook.com/anis.ouerhani.39" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
@@ -458,10 +458,10 @@
 {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
 {{--                        </p>--}}
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                            <a href="#" class=""><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
+                            <a href="https://www.facebook.com/sami.hosni.75" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://www.instagram.com/rayen4391/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
@@ -481,10 +481,10 @@
 {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
 {{--                        </p>--}}
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                            <a href="#" class=""><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
+                            <a href="https://www.facebook.com/sboui.rayen" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://www.instagram.com/rayen1sboui/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
@@ -502,10 +502,10 @@
 {{--                            So seed seed green that winged cattle in kath  moved us land years living.--}}
 {{--                        </p>--}}
                         <div class="social">
-                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                            <a href="#" class=""><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                            <a href="#"><i class="fas fa-envelope-square fa-2x"></i></a>
+                            <a href="https://www.facebook.com/yassine.metoui" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a href="https://twitter.com/Ym2454003663" target="_blank" class=""><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://www.instagram.com/metoui24/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="javascript:void();" target="_blank"><i class="fas fa-envelope-square fa-2x"></i></a>
                         </div>
                     </div>
                 </div>

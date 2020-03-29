@@ -37,6 +37,9 @@
 
                         <div class="container">
                             Count: {{ $demands->count() }}
+                            @permission('access-admin-page')
+                                <div>can</div>
+                            @endpermission
                             <div id="demands">
                                 @foreach($demands as $demand)
                                     <div class="card mx-auto mb-3">

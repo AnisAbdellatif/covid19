@@ -63,7 +63,7 @@
                             </li>
                         @endif
 
-                        @permission('access-admin-section')
+                        @permission('access-admin-page')
                             <li class="nav-item {{ $adminPage ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('admin.default') }}">{{ __('Admin Page') }}</a>
                             </li>
@@ -199,10 +199,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/Mriguel-192783471190682/"><i class="fab fa-facebook-f"></i></a></li>
                         <li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="javascript:void();"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="mrigel789@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></li>
+                        <li class="list-inline-item"><a href="mailto: mrigel789@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></li>
                     </ul>
                 </div>
                 </hr>
