@@ -30,9 +30,9 @@ Route::group(['prefix' => '{language}'], function () {
         ->group(function () {
             Route::resource('dashboard', 'DashboardController');
 
-            Route::resource('users', 'UserController');
-            Route::resource('roles', 'RoleController');
-            Route::resource('permissions', 'PermissionController');
+            Route::resource('users', 'UserController')->middleware(['auth', 'permission:access-auth-panel']);
+            Route::resource('roles', 'RoleController')->middleware(['auth', 'permission:access-auth-panel']);
+            Route::resource('permissions', 'PermissionController')->middleware(['auth', 'permission:access-auth-panel']);
 
             Route::resource('requests', 'RequestController');
 
