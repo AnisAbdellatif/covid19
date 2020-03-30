@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Ces informations d\'identification ne correspondent pas à nos enregistrements.',
+    'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
     'not_allowed' => 'Vous n\'êtes pas autorisé à accéder à cette page! Veuillez contacter les propriétaires du site Web en cas de problème.',
 
 ];

@@ -9,7 +9,7 @@ class DemandController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:access-demands-page', ['only' => ['index',]]);
+        $this->middleware('permissions:access-demands-page', ['only' => ['index',]]);
     }
 
     public function index()
@@ -17,7 +17,7 @@ class DemandController extends Controller
         $demands = Demand::where('finished', '0')
                          ->where('taken', '0');
 
-        if(! auth()->user()->hasRole(... ['superadmin', 'admin'])) {
+        if(! auth()->user()->hasGroup('superadmin', 'admin')) {
             $demands = $demands->where(function ($query) {
                 $query->select('country')
                     ->from('users')

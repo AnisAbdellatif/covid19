@@ -16,7 +16,7 @@
                             @csrf
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Title</span>
+                                    <span class="input-group-text" id="basic-addon3">{{ __('Title') }}</span>
                                 </div>
                                 <input type="text" name="title" class="form-control @error('description') is-invalid @enderror" value="{{ old('title') }}" id="basic-url" aria-describedby="basic-addon3">
 
@@ -29,7 +29,7 @@
 
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Description of your demand</span>
+                                    <span class="input-group-text">{{ __('Description of your demand') }}</span>
                                 </div>
                                 <textarea class="form-control @error('description') is-invalid @enderror" aria-label="With textarea" name="description">{{ old('description') }}</textarea>
 
@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button class="btn btn-primary mt-3" type="submit">Submit</button>
+                                <button class="btn btn-primary mt-3" type="submit">{{ __('Submit') }}</button>
                             </div>
                         </form>
                     </div>

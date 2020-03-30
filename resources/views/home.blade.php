@@ -56,7 +56,7 @@
                                                 {{ $demand->description }}
                                             </p>
                                             <p>
-                                                {{ __('State') }}: {{ $demand->finished ? __('You order has been taken care of') : ($demand->taken ? __('Your demand is being taken care of') : __('Not yet')) }}
+                                                {{ __('State') }}: {{ $demand->finished ? __('Finished') : ($demand->taken ? __('In progress') : __('Not yet')) }}
                                             </p>
                                         </div>
                                         <div class="card-footer text-muted">

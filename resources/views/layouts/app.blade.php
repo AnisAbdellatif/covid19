@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 20px">
                 <ul class="navbar-nav ml-auto text-center">
                     <li class="nav-item {{ Route::is('welcome') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('welcome') }}">Welcome</a>
+                        <a class="nav-link" href="{{ route('welcome') }}">{{ __('Welcome') }}</a>
                     </li>
 
                     @guest
@@ -57,11 +57,9 @@
                         @endif
 
                     @else
-                        @if(Auth::check())
-                            <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
-                            </li>
-                        @endif
+                        <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                        </li>
 
                         @permission('access-admin-page')
                             <li class="nav-item {{ $adminPage ? 'active' : '' }}">
@@ -115,34 +113,34 @@
         <div class="container py-5">
             <div class="row text-center text-md-left">
                 <div class="col-sm-12 col-md-4 mx-auto">
-                    <h5>Quick links</h5>
+                    <h5>{{ __('Quick links') }}</h5>
                     <ul class="list-unstyled quick-links">
-                        <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>Welcome</a></li>
-                        <li><a href="{{ route('home') }}"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="{{ route('register') }}"><i class="fa fa-angle-double-right"></i>Join</a></li>
+                        <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>{{ __('Welcome') }}</a></li>
+                        <li><a href="{{ route('home') }}"><i class="fa fa-angle-double-right"></i>{{ __('Home') }}</a></li>
+                        <li><a href="{{ route('register') }}"><i class="fa fa-angle-double-right"></i>{{ __("Join US") }}</a></li>
                         <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contact</a></li>
                     </ul>
                     <hr class="d-md-none w-75" style="background-color: white;">
                 </div>
 
                 <div class="col-sm-12 col-md-4 mx-auto">
-                    <h5>Info</h5>
+                    <h5>{{ __('Info') }}</h5>
                     <ul class="list-unstyled quick-links">
                         <li class="info">
                             <span class="fa fa-location-arrow"></span>
-                            Head Office:
+                            {{ __('Head Office') }}:
                             <p>Tunis,Tunisia</p>
                         </li>
 
                         <li class="info">
                             <span class="fa fa-phone"></span>
-                            Phone Number
+                            {{ __('Phone Number') }}:
                             <p>+216 50 063 206</p>
                         </li>
 
                         <li class="info">
                             <span class="fa fa-envelope"></span>
-                            Email
+                            {{ __('Email Address') }}
                             <p>mrigel789@gmail.com</p>
                         </li>
                     </ul>
@@ -150,7 +148,7 @@
                 </div>
 
                 <div class="col-sm-12">
-                    <h5>Partners</h5>
+                    <h5>{{ __('Partners') }}</h5>
                     <div class="container">
                         @push('scripts')
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
