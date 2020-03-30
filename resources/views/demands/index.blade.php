@@ -7,11 +7,11 @@
                 Count: {{ $demands->count() }}
             </div>
 
-            @role('volunteer')
+            @group('volunteer')
                 <div class="d-flex justify-content-end">
                     <a class="btn btn-primary" href="{{ route('demands.taken') }}">{{ __('Taken Demands') }}</a>
                 </div>
-            @endrole
+            @endgroup
         </div>
         <div id="demands">
             @foreach($demands as $demand)

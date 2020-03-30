@@ -12,13 +12,13 @@
                         </div>
                     @endpermission
 
-                    @role('volunteer')
+                    @group('volunteer')
                         <div class="col-12 col-md-4 mt-2 mt-md-0">
                             <a class="btn btn-primary" href="{{ route('demands.taken') }}">{{ __('Taken Demands') }}</a>
                         </div>
-                    @endrole
+                    @endgroup
 
-                    @permission('make-demand')
+                    @permission('make-demands')
                         <div class="col-12 col-md-4 mt-2 mt-md-0">
                             <a class="btn btn-primary" href="{{ route('demands.create') }}">{{ __('Make new Demand') }}</a>
                         </div>

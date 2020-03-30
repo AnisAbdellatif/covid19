@@ -32,7 +32,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="email" value="{{ old('email') }}" placeholder="example@infoajst.com" aria-label="User Email">
+                        <input type="text" class="form-control" name="email" value="{{ old('email') }}" placeholder="example@example.com" aria-label="User Email">
                     </div>
 
                     <!-- User Password input field -->
@@ -56,11 +56,11 @@
                             <div class="form-control">Check all</div>
                         </div>
                         <div class="overflow-auto" style="height: 124px" id="roles-field">
-                            @foreach(Role::All() as $role)
+                            @foreach(auth()->user()->groups()->get() as $role)
                                 <div class="input-group mb-1">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="roles[]" value="{{ $role->name }}" aria-label="Check this Role!">
+                                            <input type="checkbox" name="roles[]" value="{{ $role->slug }}" aria-label="Check this Role!">
                                         </div>
                                     </div>
                                     <div class="form-control">{{ $role->name }}</div>
@@ -82,11 +82,11 @@
                             <div class="form-control">Check all</div>
                         </div>
                         <div class="overflow-auto" style="height: 124px" id="permissions-field">
-                            @foreach(Permission::All() as $permission)
+                            @foreach(auth()->user()->getAllPermissions() as $permission)
                                 <div class="input-group mb-1">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="permissions[]" value="{{ $permission->name }}" aria-label="Check this Permission!">
+                                            <input type="checkbox" name="permissions[]" value="{{ $permission->slug }}" aria-label="Check this Permission!">
                                         </div>
                                     </div>
                                     <div class="form-control">{{ $permission->name }}</div>

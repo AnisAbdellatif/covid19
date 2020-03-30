@@ -46,9 +46,10 @@
                 <tr class="">
                     <th scope="col" style="width: 5%">#</th>
                     <th scope="col" style="width: 15%">Name</th>
-                    <th scope="col" style="width: 20%">Description</th>
-                    <th scope="col" style="width: 40%">Permissions</th>
-                    <th scope="col" style="width: 20%">Actions</th>
+                    <th scope="col" style="width: 20%">Slug</th>
+                    <th scope="col" style="width: 30%">Description</th>
+                    <th scope="col" style="width: 20%">Roles</th>
+                    <th scope="col" style="width: 10%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,10 +57,11 @@
                     <tr>
                         <th scope="row">{{ $permission->id }}</th>
                         <td>{{ $permission->name }}</td>
+                        <td>{{ $permission->slug }}</td>
                         <td>{{ $permission->description }}</td>
                         <td>
                             <ul>
-                                @foreach($permission->roles()->get() as $role)
+                                @foreach($permission->groups()->get() as $role)
                                     <li>{{ $role->name }}</li>
                                 @endforeach
                             </ul>
@@ -71,6 +73,7 @@
                                     data-target="#EditPermissionModal"
                                     data-permission_id="{{ $permission->id }}"
                                     data-permission_name="{{ $permission->name }}"
+                                    data-permission_slug="{{ $permission->slug }}"
                                     data-permission_description="{{ $permission->description }}">
                                 <i class="fas fa-edit"></i>
                             </button>

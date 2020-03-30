@@ -7,6 +7,7 @@ use App\Permission;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,17 +15,13 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:edit-auth-panel')->except('index');
+        $this->middleware('permissions:edit-auth-panel')->except('index');
     }
 
     public function index()
     {
-        $superId = Role::where('name', 'superadmin')->first()->id;
-        $superUsersIds = DB::table('role_user')
-            ->where('role_id', $superId)
-            ->pluck('user_id')
-            ->toArray();
-        $users = User::whereNotIn('id', $superUsersIds)->paginate(10);
+//        dd(auth()->user()->groups()->get());
+        $users = User::paginate(10);
         return view('admin.users.index', compact('users'));
     }
 
@@ -44,11 +41,12 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        if ($request->roles) {
-            $user->roles()->attach(Role::whereIn('name', $request->roles)->get());
+        if (isset($request->permissions)) {
+            $user->assignPermissions($request->permissions);
         }
-        if ($request->permissions) {
-            $user->permissions()->attach(Permission::whereIn('name', $request->permissions)->get());
+
+        if (isset($request->roles)) {
+            $user->assignGroup($request->roles);
         }
 
         return back()->withSuccess("User '$user->name' has been successfully created.");
@@ -64,14 +62,24 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        $user->roles()->detach();
-        $user->permissions()->detach();
+
+        auth()->user()->groups()->get()->each(function ($item, $key) use ($user)
+        {
+            $user->revokeGroup($item);
+        });
+        auth()->user()->getAllPermissions()->each(function ($item, $key) use ($user)
+        {
+            $user->revokePermissions($item);
+        });
+
         if (isset($request->roles)) {
-            $user->roles()->attach(Role::whereIn('name', $request->roles)->get());
+            $user->assignGroup($request->roles);
         }
+
         if (isset($request->permissions)) {
-            $user->permissions()->attach(Permission::whereIn('name', $request->permissions)->get());
+            $user->assignPermissions($request->permissions);
         }
+
         return back()->withSuccess("User '$oldName' has been successfully edited.");
     }
 

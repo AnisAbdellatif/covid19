@@ -48,9 +48,10 @@
                 <tr class="">
                     <th scope="col" style="width: 5%">#</th>
                     <th scope="col" style="width: 15%">Name</th>
-                    <th scope="col" style="width: 20%">Description</th>
-                    <th scope="col" style="width: 40%">Permissions</th>
-                    <th scope="col" style="width: 20%">Actions</th>
+                    <th scope="col" style="width: 20%">Slug</th>
+                    <th scope="col" style="width: 25%">Description</th>
+                    <th scope="col" style="width: 25%">Permissions</th>
+                    <th scope="col" style="width: 10%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,6 +59,7 @@
                     <tr>
                         <th scope="row">{{ $role->id }}</th>
                         <td>{{ $role->name }}</td>
+                        <td>{{ $role->slug }}</td>
                         <td>{{ $role->description }}</td>
                         <td>
                             <ul>
@@ -73,8 +75,9 @@
                                     data-target="#EditRoleModal"
                                     data-role_id="{{ $role->id }}"
                                     data-role_name="{{ $role->name }}"
+                                    data-role_slug="{{ $role->slug }}"
                                     data-role_description="{{ $role->description }}"
-                                    data-role_permissions="@foreach($role->permissions()->get() as $permission){{ $permission->name."," }}@endforeach">
+                                    data-role_permissions="@foreach($role->permissions()->get() as $permission){{ $permission->slug."," }}@endforeach">
                                 <i class="fas fa-edit"></i>
                             </button>
                             @component('components.Admin.deleteBtn')

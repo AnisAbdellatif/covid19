@@ -24,7 +24,15 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-file-signature"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="name" placeholder="Permission name" value="{{ old('name') }}" aria-label="Role name">
+                        <input type="text" class="form-control" name="name" placeholder="Permission name" value="{{ old('name') }}" aria-label="Permission name">
+                    </div>
+
+                    <!-- Permission Slug input field -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-file-signature"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="slug" placeholder="Permission slug" value="{{ old('slug') }}" aria-label="Permission slug">
                     </div>
 
                     <!-- Permission Description input field -->
@@ -32,7 +40,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-audio-description"></i></span>
                         </div>
-                        <textarea class="form-control" name="description" value="{{ old('description') }}" placeholder="Description..." aria-label="Role description"></textarea>
+                        <textarea class="form-control" name="description" value="{{ old('description') }}" placeholder="Description..." aria-label="Permission description"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -51,6 +59,7 @@
                 let button = $(event.relatedTarget) // Button that triggered the modal
                 let permission_id = button.data('permission_id');
                 let permission_name = button.data('permission_name');
+                let permission_slug = button.data('permission_slug');
                 let permission_description = button.data('permission_description');
                 let modal = $(this)
                 modal.find('.modal-title').text(`Edit Permission: '${ permission_name }'`)
@@ -58,6 +67,7 @@
                 // form.attr('action', `${form.attr('action')}/${ permission_id }`);
                 form.attr('action', "{{ route('admin.permissions.update', '') }}" + `/${ permission_id }`);
                 modal.find(".modal-body input[name='name']").val(permission_name);
+                modal.find(".modal-body input[name='slug']").val(permission_slug);
                 modal.find(".modal-body textarea[name='description']").val(permission_description)
             });
         @endif

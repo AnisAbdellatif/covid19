@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2da296b89ac711d8e49fcff54df4f94e",
+    "content-hash": "e0280fd3a23f3582a14103b48e5b4c8c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -331,6 +331,50 @@
                 "validator"
             ],
             "time": "2020-02-13T22:36:52+00:00"
+        },
+        {
+            "name": "facade/ignition-contracts",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facade/ignition-contracts.git",
+                "reference": "f445db0fb86f48e205787b2592840dd9c80ded28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facade/ignition-contracts/zipball/f445db0fb86f48e205787b2592840dd9c80ded28",
+                "reference": "f445db0fb86f48e205787b2592840dd9c80ded28",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Facade\\IgnitionContracts\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://flareapp.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Solution contracts for Ignition",
+            "homepage": "https://github.com/facade/ignition-contracts",
+            "keywords": [
+                "contracts",
+                "flare",
+                "ignition"
+            ],
+            "time": "2019-08-30T14:06:08+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1184,6 +1228,89 @@
                 }
             ],
             "time": "2020-03-17T18:58:12+00:00"
+        },
+        {
+            "name": "mateusjunges/laravel-acl",
+            "version": "2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mateusjunges/laravel-acl.git",
+                "reference": "f2b9f9051d48e54ba1ef9aa228cd5c9144a1e8ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mateusjunges/laravel-acl/zipball/f2b9f9051d48e54ba1ef9aa228cd5c9144a1e8ad",
+                "reference": "f2b9f9051d48e54ba1ef9aa228cd5c9144a1e8ad",
+                "shasum": ""
+            },
+            "require": {
+                "facade/ignition-contracts": "^1.0",
+                "illuminate/auth": "^5.8|^6.0|^7.0",
+                "illuminate/database": "^5.8|^6.0|^7.0",
+                "illuminate/support": "^5.8|^6.0|^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "facade/ignition": "^1.4|^2.0",
+                "orchestra/testbench": "^3.8|^4.0|^5.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "predis/predis": "^1.1"
+            },
+            "suggest": {
+                "facade/igntion": "Needed to be able to use the ignition solutions for laravel-acl"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Junges\\ACL\\ACLServiceProvider",
+                        "Junges\\ACL\\ACLAuthServiceProvider",
+                        "Junges\\ACL\\ACLEventsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Junges\\ACL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mateus Junges",
+                    "email": "contato@mateusjunges.com",
+                    "homepage": "https://mateusjunges.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package provides a complete Access Control List management",
+            "homepage": "https://github.com/mateusjunges/laravel-acl",
+            "keywords": [
+                "access-control-list",
+                "acl",
+                "junges",
+                "laravel",
+                "permissions",
+                "security"
+            ],
+            "funding": [
+                {
+                    "url": "https://mateusjunges.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/sindresorhus",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/mateusjunges",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-03-19T17:44:33+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3935,50 +4062,6 @@
                 "page"
             ],
             "time": "2020-03-18T19:20:44+00:00"
-        },
-        {
-            "name": "facade/ignition-contracts",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facade/ignition-contracts.git",
-                "reference": "f445db0fb86f48e205787b2592840dd9c80ded28"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition-contracts/zipball/f445db0fb86f48e205787b2592840dd9c80ded28",
-                "reference": "f445db0fb86f48e205787b2592840dd9c80ded28",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Facade\\IgnitionContracts\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://flareapp.io",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Solution contracts for Ignition",
-            "homepage": "https://github.com/facade/ignition-contracts",
-            "keywords": [
-                "contracts",
-                "flare",
-                "ignition"
-            ],
-            "time": "2019-08-30T14:06:08+00:00"
         },
         {
             "name": "filp/whoops",

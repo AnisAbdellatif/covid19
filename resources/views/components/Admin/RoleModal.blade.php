@@ -24,7 +24,15 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-file-signature"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="name" placeholder="Role name" value="{{ $mode }}" aria-label="Role name">
+                        <input type="text" class="form-control" name="name" placeholder="Role name" value="{{ old('name') }}" aria-label="Role name">
+                    </div>
+
+                    <!-- Role Slug input field -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-file-signature"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="slug" placeholder="Role slug" value="{{ old('slug') }}" aria-label="Role name">
                     </div>
 
                     <!-- Role Description input field -->
@@ -46,11 +54,11 @@
                         </div>
                         <div class="form-control">Check all</div>
                     </div>
-                    @foreach(Permission::All() as $permission)
+                    @foreach(auth()->user()->getAllPermissions() as $permission)
                         <div class="input-group mb-1">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" name="permissions[]" value="{{ $permission->name }}" aria-label="Check this permission!">
+                                    <input type="checkbox" name="permissions[]" value="{{ $permission->slug }}" aria-label="Check this permission!">
                                 </div>
                             </div>
                             <div class="form-control">{{ $permission->name }}</div>
@@ -86,6 +94,7 @@
                 let button = $(event.relatedTarget) // Button that triggered the modal
                 let role_id = button.data('role_id');
                 let role_name = button.data('role_name');
+                let role_slug = button.data('role_slug');
                 let role_description = button.data('role_description');
                 let role_permissions = button.data('role_permissions').split(',');
                 let modal = $(this)
@@ -93,6 +102,7 @@
                 let form = modal.find("form");
                 form.attr('action', "{{ route('admin.roles.update', '') }}" + `/${ role_id }`);
                 modal.find(".modal-body input[name='name']").val(role_name);
+                modal.find(".modal-body input[name='slug']").val(role_slug);
                 modal.find(".modal-body textarea[name='description']").val(role_description)
                 $('#EditRoleModal :checkbox').each(function() {
                     this.checked = false;

@@ -73,44 +73,49 @@
                 <tbody>
 
                 @foreach($users as $user)
-                    <tr>
-                        <th scope="row">{{ $user->id }}</th>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
-                            <ul>
-                                @foreach($user->roles()->get() as $role)
-                                    <li>{{ $role->name }}</li>
-                                @endforeach
-                            </ul>
-                        </td>
-                        <td class="w-100" style="display: inline-flex">
-                            <button type="button"
-                                    class="btn btn-primary mr-2"
-                                    data-toggle="modal"
-                                    data-target="#EditUserModal"
-                                    data-user_id="{{ $user->id }}"
-                                    data-user_name="{{ $user->name }}"
-                                    data-user_email="{{ $user->email }}"
-                                    data-user_roles="@foreach($user->roles()->get() as $role){{ $role->name."," }}@endforeach"
-                                    data-user_permissions="@foreach($user->permissions()->get() as $permission){{ $permission->name."," }}@endforeach">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            @component('components.Admin.deleteBtn')
-                                @slot('title')
-                                    Role
-                                @endslot
+                    @if(! $user->hasGroup('superadmin'))
 
-                                @slot('route')
-                                    {{ route('admin.users.destroy', $user->id)}}
-                                @endslot
+                        <tr>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                <ul>
+                                    @foreach($user->groups()->get() as $role)
+                                        <li>{{ $role->name }}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td class="w-100" style="display: inline-flex">
+                                @permission('edit-users-panel')
+                                    <button type="button"
+                                            class="btn btn-primary mr-2"
+                                            data-toggle="modal"
+                                            data-target="#EditUserModal"
+                                            data-user_id="{{ $user->id }}"
+                                            data-user_name="{{ $user->name }}"
+                                            data-user_email="{{ $user->email }}"
+                                            data-user_roles="@foreach($user->groups()->get() as $role){{ $role->slug."," }}@endforeach"
+                                            data-user_permissions="@foreach($user->getAllPermissions() as $permission){{ $permission->slug."," }}@endforeach">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    @component('components.Admin.deleteBtn')
+                                        @slot('title')
+                                            Role
+                                        @endslot
 
-                                @slot('icon')
-                                    <i class="fas fa-user-minus"></i>
-                                @endslot
-                            @endcomponent
-                        </td>
-                    </tr>
+                                        @slot('route')
+                                            {{ route('admin.users.destroy', $user->id)}}
+                                        @endslot
+
+                                        @slot('icon')
+                                            <i class="fas fa-user-minus"></i>
+                                        @endslot
+                                    @endcomponent
+                                @endpermission
+                            </td>
+                        </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>

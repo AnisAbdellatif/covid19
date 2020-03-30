@@ -117,7 +117,7 @@
                             </p>
                             <div class="d-flex justify-content-between raised_goal">
                                 <p>Number: {{ User::all()->filter(function ($user) {
-                                                return $user->hasRole('default');
+                                                return $user->hasGroup('default');
                                             })->count() }}</p>
 {{--                                <p><span>Goal: $2500</span></p>--}}
                             </div>
@@ -145,7 +145,7 @@
                             </p>
                             <div class="d-flex justify-content-between raised_goal">
                                 <p>Number: {{ User::all()->filter(function ($user) {
-                                                return $user->hasRole('volunteer');
+                                                return $user->hasGroup('volunteer');
                                             })->count() }}</p>
                             </div>
                             <div class="d-flex justify-content-between donation align-items-center">
@@ -172,7 +172,7 @@
                             </p>
                             <div class="d-flex justify-content-between raised_goal">
                                 <p>Number: {{ User::all()->filter(function ($user) {
-                                                return $user->hasRole('doctor');
+                                                return $user->hasGroup('doctor');
                                             })->count() }}</p>
 {{--                                <p><span>Goal: $2500</span></p>--}}
                             </div>

@@ -167,6 +167,10 @@ return [
          * Package Service Providers...
          */
 
+        Junges\ACL\ACLServiceProvider::class,
+        Junges\ACL\ACLAuthServiceProvider::class,
+        Junges\ACL\ACLEventsServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -175,7 +179,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\PermissionsServiceProvider::class,
 
     ],
 

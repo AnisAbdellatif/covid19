@@ -23,16 +23,16 @@ Route::group(['prefix' => '{language}'], function () {
     Route::namespace('Admin')
         ->prefix('admin')
         ->name('admin.')
-        ->middleware(['auth', 'permission:access-admin-page'])
+        ->middleware(['auth', 'permissions:access-admin-page'])
         ->group(function () {
             Route::resource('dashboard', 'DashboardController');
 
-            Route::get('users/search', 'UserController@search')->name('users.search')->middleware(['auth', 'permission:access-auth-panel']);
-            Route::resource('users', 'UserController')->middleware(['auth', 'permission:access-auth-panel']);
+            Route::get('users/search', 'UserController@search')->name('users.search')->middleware(['auth', 'permissions:access-auth-panel']);
+            Route::resource('users', 'UserController')->middleware(['auth', 'permissions:access-auth-panel']);
 
-            Route::resource('roles', 'RoleController')->middleware(['auth', 'permission:access-auth-panel']);
+            Route::resource('roles', 'RoleController')->middleware(['auth', 'permissions:access-auth-panel']);
 
-            Route::resource('permissions', 'PermissionController')->middleware(['auth', 'permission:access-auth-panel']);
+            Route::resource('permissions', 'PermissionController')->middleware(['auth', 'permissions:access-auth-panel']);
 
             Route::resource('requests', 'RequestController');
 

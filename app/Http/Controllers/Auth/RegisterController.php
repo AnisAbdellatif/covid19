@@ -86,7 +86,7 @@ class RegisterController extends Controller
             'country' => geoip()->getLocation(geoip()->getClientIP())->country,
         ]);
 
-        $user->roles()->attach(Role::where('name', 'default')->get());
+        $user->assignGroup('default');
         if (in_array(Request::get('type'), array('volunteer', 'doctor'))) {
             RoleRequest::create([
                 'user_id' => $user->id,
