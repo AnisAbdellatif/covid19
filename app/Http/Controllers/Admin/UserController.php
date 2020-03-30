@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permissions:edit-auth-panel')->except('index');
+        $this->middleware('permissions:edit-auth-panel')->except('index', 'search');
     }
 
     public function index()
@@ -100,7 +100,7 @@ class UserController extends Controller
         $user = User::findOrFail(auth()->user()->id);
         $user->password = Hash::make($data['password']);
         $user->save();
-        return route('home');
+        return redirect()->route('home');
     }
 
     public function destroy($lang, $id)
