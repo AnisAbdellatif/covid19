@@ -7,9 +7,11 @@
             break;
         case 'volunteer':
             $role = 'volunteer';
+            $descHolder = "Volunteer";
             break;
         case 'doctor':
             $role = 'doctor';
+            $descHolder = "Doctor";
             break;
         default:
             $role = 'default';
@@ -141,7 +143,11 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Why do you want to join as '. $role) }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea class="form-control @error('description') is-invalid @enderror" required name="description" maxlength="255">{{ old('description') }}</textarea>
+                                    <textarea class="form-control @error('description') is-invalid @enderror"
+                                              name="description"
+                                              maxlength="255"
+                                              placeholder="{{ $descHolder }}"
+                                              required>{{ old('description') }}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
