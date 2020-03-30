@@ -15,12 +15,11 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permissions:edit-auth-panel')->except('index', 'search');
+        $this->middleware('permissions:edit-users-panel')->except('index', 'search');
     }
 
     public function index()
     {
-//        dd(auth()->user()->groups()->get());
         $users = User::paginate(10);
         return view('admin.users.index', compact('users'));
     }
