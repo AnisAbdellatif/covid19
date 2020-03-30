@@ -73,7 +73,7 @@
                 <tbody>
 
                 @foreach($users as $user)
-                    @if(! $user->hasGroup('superadmin'))
+                    @if(! ($user->hasGroup('superadmin') || $user->id == auth()->user()->id))
 
                         <tr>
                             <th scope="row">{{ $user->id }}</th>
