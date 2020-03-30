@@ -4,7 +4,7 @@
 @endphp
 
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scrollbar">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,7 +114,7 @@
     <section class="{{ !Route::is('welcome') ? 'mt-4' : '' }}" id="footer">
         <div class="container py-5">
             <div class="row text-center text-md-left">
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 mx-auto">
                     <h5>Quick links</h5>
                     <ul class="list-unstyled quick-links">
                         <li><a href="{{ route('welcome') }}"><i class="fa fa-angle-double-right"></i>Welcome</a></li>
@@ -125,7 +125,7 @@
                     <hr class="d-md-none w-75" style="background-color: white;">
                 </div>
 
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-4 mx-auto">
                     <h5>Info</h5>
                     <ul class="list-unstyled quick-links">
                         <li class="info">
@@ -149,63 +149,54 @@
                     <hr class="d-md-none w-75" style="background-color: white;">
                 </div>
 
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12">
                     <h5>Partners</h5>
-                    <div class="container-fluid">
-                        <ul class="list-unstyled row" style="height: 280px; overflow-y: auto">
-                            <li class="col-12 col-md-6 mt-2">
-                                <img src="{{ asset('img/partners/ajst.png') }}" width="180px" alt="sp1">
-                            </li>
+                    <div class="container">
+                        @push('scripts')
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+                            <script !src="">
+                                $('.partners-logos').slick({
+                                    slidesToShow: 6,
+                                    slidesToScroll: 1,
+                                    autoplay: true,
+                                    autoplaySpeed: 1500,
+                                    arrows: false,
+                                    dots: false,
+                                    pauseOnHover: false,
+                                    responsive: [{
+                                        breakpoint: 768,
+                                        settings: {
+                                            slidesToShow: 4
+                                        }
+                                    }, {
+                                        breakpoint: 520,
+                                        settings: {
+                                            slidesToShow: 3
+                                        }
+                                    }]
+                                });
+                            </script>
+                        @endpush
 
-                            <li class="col-12 col-md-6 mt-2">
-                                <img src="{{ asset('img/partners/galaxy.png') }}" width="130px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2">
-                                <img class="ml-2" src="{{ asset('img/partners/atg.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2">
-                                <img src="{{ asset('img/partners/crt_megrine.png') }}" width="100px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2 pt-3">
-                                <img class="ml-2" src="{{ asset('img/partners/jci_medina_s.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2 pt-4 pr-2">
-                                <img class="ml-2" src="{{ asset('img/partners/jci_medina_j.png') }}" width="100px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                                <img class="ml-2" src="{{ asset('img/partners/jci_riadhelmourouj.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                                <img class="ml-2" src="{{ asset('img/partners/ucba.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                                <img class="ml-2" src="{{ asset('img/partners/lctm.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2 pt-3 pr-2">
-                                <img class="ml-2" src="{{ asset('img/partners/amspt.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2">
-                                <img class="ml-2" src="{{ asset('img/partners/jokeresen.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                            <li class="col-12 col-md-6 mt-2">
-                                <img class="ml-2" src="{{ asset('img/partners/ajccm.png') }}" width="120px" alt="sp1">
-                            </li>
-
-                        </ul>
+                        <section class="partners-logos slider">
+                            <div class="slide"><img src="{{ asset('img/partners/ajst.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/galaxy.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/atg.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/crt_megrine.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/jci_medina_s.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/jci_medina_j.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/jci_riadhelmourouj.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/ucba.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/lctm.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/amspt.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/jokeresen.png') }}"></div>
+                            <div class="slide"><img src="{{ asset('img/partners/ajccm.png') }}"></div>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="container-fluid" id="footer-bottom">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
