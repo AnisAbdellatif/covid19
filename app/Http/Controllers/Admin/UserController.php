@@ -15,7 +15,8 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permissions:edit-users-panel')->except('index', 'search');
+        $this->middleware('permissions:access-auth-panel')->except('index', 'search');
+        $this->middleware('permissions:edit-users-panel')->only('update', 'destroy');
     }
 
     public function index()
